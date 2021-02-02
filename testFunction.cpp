@@ -62,21 +62,6 @@ void cube(const int&a){
  */
 int harpo(int n,int m,int j = 5);
 
-//函数声明
-template<typename AnyType>
-void Swaptemplate(AnyType &a,AnyType &b);
-
-template void Swaptemplate<int>(int&,int&);//template后面没有<>,表示显式实例化，后面不需要函数定义，编译器自己生成。区别于显式具体化
-
-//---------声明
-template<typename AnyType>
-void Swaptemplate(AnyType a[],AnyType b[],int n);
-
-template<> void Swaptemplate(int a[],int b[],int n);//显式具体化,后面需要自己根据此声明定义函数的实现。同一个编程单元，同一种类型，不能一起使用显式具体化和显式实例
-
-void Swaptemplate(int a[],int b[],int n);//这三个声明对应下面的三个定义
-//------------
-
 int main_fu(){
 	int a[10] = {0};
 	cout<<"val of a :"<<a<<"  size"<<sizeof a<<endl;
@@ -115,18 +100,6 @@ int main_fu(){
 
 	harpo(1,2);
 
-	Swaptemplate(s1,s2);
-
-
-
-	int arr1[]={1,2,3};
-	int arr2[]={4,5,6};
-	//调用的是哪个方法取决于前面有没有声明
-	//如果声明了void Swaptemplate(int a[],int b[],int n);则优先调用此函数
-	//否则如果声明了template<> void Swaptemplate(int a[],int b[],int n);则调用此函数
-	//否则调用模板函数
-	Swaptemplate(arr1,arr2,3);
-
 	return 0;
 }
 
@@ -134,42 +107,3 @@ int harpo(int n,int m,int j){
 	cout<<"j="<<j<<endl;
 	return 0;
 }
-
-//函数模板本身不会生成函数定义，只是提供一个方案，由编译器根据代码生成定义
-template<class AnyType> //same as template<typename AnyType>,除非需要考虑向后兼容，否则应该尽量使用typename
-void Swaptemplate(AnyType &a,AnyType &b){
-	AnyType tmp = a;
-	a = b;
-	b = tmp;
-}
-
-//-------------下面是三个几乎一样的方法
-//重载的模板
-template<typename AnyType>
-void Swaptemplate(AnyType a[],AnyType b[],int n){
-	AnyType tmp;
-	for(int i = 0;i<n;i++){
-		tmp = a[i];
-		a[i] = b[i];
-		b[i] = tmp;
-	}
-}
-//具体化模板类型
-template<> void Swaptemplate(int a[],int b[],int n){
-	int tmp;
-	for(int i = 0;i<n;i++){
-		tmp = a[i];
-		a[i] = b[i];
-		b[i] = tmp;
-	}
-}
-void Swaptemplate(int a[],int b[],int n){
-	int tmp;
-	for(int i = 0;i<n;i++){
-		tmp = a[i];
-		a[i] = b[i];
-		b[i] = tmp;
-	}
-
-}
-//--------------------------------
