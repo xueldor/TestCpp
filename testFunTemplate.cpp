@@ -29,9 +29,9 @@ void Swaptemplate(T a[],T b[],int n){
 	}
 }
 //--------end
-//1. 隐式实例化： 编译期间，当有代码调用时，编译器自动根据传入的参数类型，从模板生成函数定义.见 tag 1
+//1. 隐式实例化(implicit instantiation)： 编译期间，当有代码调用时，编译器自动根据传入的参数类型，从模板生成函数定义.见 tag 1
 
-//2. 显式实例化： 通过下面的声明，明确要求编译器根据模板生成函数定义
+//2. 显式实例化(explicit instantiation)： 通过下面的声明，明确要求编译器根据模板生成函数定义
 template void Swaptemplate<long>(long&, long&);//template后面没有<>,表示显式实例化，编译器从模板生成实现，所以后面不需要函数定义，这点区别于显式具体化
 template void Swaptemplate<float>(float&, float&);
 //既然可以隐式实例化，那为什么还需要显式实例化呢？请打开a.h 和a.cpp ,为了隐藏逻辑，我将foo的实现放在a.cpp里，a.h中只有声明，那么必须在a.cpp里面显式实例化，才能调用，否则该函数不存在(无法解析的外部符号)。
@@ -40,7 +40,7 @@ template void Swaptemplate<float>(float&, float&);
 //普通的函数声明，跟模板无关，但是非模板的声明，优先级比显式实例化的声明高，所以下面要注释掉，否则将调用非模板版本
 //void Swaptemplate(long,long);
 
-//3. 显式特殊化（显式专用化、显式具体化） : 有的时候，对于某个类型，模板函数中的逻辑不适用，希望针对这种类型专门实现一套逻辑。
+//3. 显式特殊化（显式专用化、显式具体化）（explicit specialization） : 有的时候，对于某个类型，模板函数中的逻辑不适用，希望针对这种类型专门实现一套逻辑。
 template<> void Swaptemplate(string& a,string& b);//声明。当然由于下面紧跟的就是实现，所以这里其实是不需要的。只是演示语法。
 template<> void Swaptemplate(string& a,string& b){//实现
 	cout<<"我是模板Swaptemplate的特例话"<<endl;
