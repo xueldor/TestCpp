@@ -8,8 +8,8 @@ extern const int global3;
 extern int global4;
 
 #include "testnamespace.h"
-using namespace ÕÅÈı;
-using ÀîËÄ::payed;
+using namespace å¼ ä¸‰;
+using æå››::payed;
 
 void printV(){
 	cout<<"global3 "<<global3<<endl;
@@ -23,8 +23,8 @@ void onlyThisFile(){
 }
 
 void printName(){
-	cout<<"printName "<<ÕÅÈı::name<<endl;
-//wrong     	payed();//Í¬Ê±ÒıÈëÁËÕÅÈıºÍÀîËÄÁ½¸öÃüÃû¿Õ¼ä£¬ÆäÖĞ¶¼°üº¬payed£¬ËùÒÔÖ±½Óµ÷ÓÃpayedÓĞ¶şÒåĞÔ
+	cout<<"printName "<<å¼ ä¸‰::name<<endl;
+//wrong     	payed();//åŒæ—¶å¼•å…¥äº†å¼ ä¸‰å’Œæå››ä¸¤ä¸ªå‘½åç©ºé—´ï¼Œå…¶ä¸­éƒ½åŒ…å«payedï¼Œæ‰€ä»¥ç›´æ¥è°ƒç”¨payedæœ‰äºŒä¹‰æ€§
 
-	ÀîËÄ::payed();
+	æå››::payed();
 }

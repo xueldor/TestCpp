@@ -6,20 +6,20 @@ using namespace std;
 void teststring(){
 	string str1;
 	string str2 = "Tom";
-	str1 = str2;//Êı×é²»ÄÜ¸³Öµ£¬string¶ÔÏó¿ÉÒÔ£¬ÒòÎªC++ÖĞ¶ÔÏóºÍ½á¹¹¿ÉÒÔÖ±½Ó¸³Öµ£¬ÄÚ´æÖĞµÄ¶ÔÏó»á¿½±´Ò»·İ
+	str1 = str2;//æ•°ç»„ä¸èƒ½èµ‹å€¼ï¼Œstringå¯¹è±¡å¯ä»¥ï¼Œå› ä¸ºC++ä¸­å¯¹è±¡å’Œç»“æ„å¯ä»¥ç›´æ¥èµ‹å€¼ï¼Œå†…å­˜ä¸­çš„å¯¹è±¡ä¼šæ‹·è´ä¸€ä»½
 	cout<<str1<<endl;
 
-	str2+=" is stupid";//Æ´½Ó
+	str2+=" is stupid";//æ‹¼æ¥
 	cout<<str2<<endl;
 
 	char hungry[] = " hungry boy";
-	str1 += hungry;//ÓëC·ç¸ñ×Ö·û´®Æ´½Ó
+	str1 += hungry;//ä¸Cé£æ ¼å­—ç¬¦ä¸²æ‹¼æ¥
 	cout<<str1<<endl;
 
-	str1 = hungry;//C·ç¸ñ×Ö·û´®¸³Öµ¸østring¶ÔÏó
+	str1 = hungry;//Cé£æ ¼å­—ç¬¦ä¸²èµ‹å€¼ç»™stringå¯¹è±¡
 	cout<<str1<<endl;
 
-	const char* tom = str2.c_str();//string×ªC·ç¸ñ×Ö·û´®
+	const char* tom = str2.c_str();//stringè½¬Cé£æ ¼å­—ç¬¦ä¸²
 	cout<<tom<<endl;
 
 

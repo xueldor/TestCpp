@@ -1,72 +1,72 @@
 #include <iostream>
 using namespace std;
 
-//Î»²Ù×÷·ûÓÐÁù¸ö£º<<,>>,~,&,|,^
-void testbit(){
-	int aa = 1;
-	cout<<(aa<<2)<<endl;//ÉáÆú¸ßÎ»£¬µÍÎ»²¹0
+namespace TestBit {
+//ä½æ“ä½œç¬¦æœ‰å…­ä¸ªï¼š<<,>>,~,&,|,^
+    void testbit() {
+        int aa = 1;
+        cout << (aa << 2) << endl;//èˆå¼ƒé«˜ä½ï¼Œä½Žä½è¡¥0
 
-	int bb = -256;
-	cout<<(bb>>2)<<endl;//¶ÔÓÚÓÐ·ûºÅÊý£¬µÍÎ»ÉáÆú£¬¸ßÎ»²¹·ûºÅÎ»£¬³ÆÎªËãÊýÓÒÒÆ
+        int bb = -256;
+        cout << (bb >> 2) << endl;//å¯¹äºŽæœ‰ç¬¦å·æ•°ï¼Œä½Žä½èˆå¼ƒï¼Œé«˜ä½è¡¥ç¬¦å·ä½ï¼Œç§°ä¸ºç®—æ•°å³ç§»
 
-	unsigned cc = 0xFFFFFFFF;
-	cout<<(cc>>2)<<"   "<<hex<<(cc>>2)<<dec<<endl;//¶ÔÓÚÎÞ·ûºÅÊý£¬µÍÎ»ÉáÆú£¬¸ßÎ»²¹0£¬³ÆÎªÂß¼­ÓÒÒÆ
+        unsigned cc = 0xFFFFFFFF;
+        cout << (cc >> 2) << "   " << hex << (cc >> 2) << dec << endl;//å¯¹äºŽæ— ç¬¦å·æ•°ï¼Œä½Žä½èˆå¼ƒï¼Œé«˜ä½è¡¥0ï¼Œç§°ä¸ºé€»è¾‘å³ç§»
 
-	int dd = 1;
-	cout<<"°´Î»È¡·´ "<<(~dd)<<endl;//°´Î»È¡·´
-	cout<<"Âß¼­·Ç "<<(!!dd)<<endl;//·Ç²Ù×÷·û½«true×ª³Éfalse£¬false×ª³Étrue
+        int dd = 1;
+        cout << "æŒ‰ä½å–å " << (~dd) << endl;//æŒ‰ä½å–å
+        cout << "é€»è¾‘éž " << (!!dd) << endl;//éžæ“ä½œç¬¦å°†trueè½¬æˆfalseï¼Œfalseè½¬æˆtrue
 
-	cout<<(aa&bb)<<endl;//Î»Óë
-	cout<<(aa|bb)<<endl;//Î»»ò
-	cout<<(aa^bb)<<endl;//Òì»ò
-}
-
-
-/**
- * Ñ­»·×óÒÆ
- */
-unsigned char rolByte(unsigned char val, int size)
-{
-  unsigned char res = val << size;
-  res |= val >> (sizeof(val)*8 - size);
-  return res;
-}
-
-/*Ñ­»·ÓÒÒÆ×Ö½Ú*/
-unsigned char rorByte(unsigned char val, int size)
-{
-  unsigned char res = val >> size;
-  res |= val << (sizeof(val)*8 - size);
-  return res;
-}
+        cout << (aa & bb) << endl;//ä½ä¸Ž
+        cout << (aa | bb) << endl;//ä½æˆ–
+        cout << (aa ^ bb) << endl;//å¼‚æˆ–
+    }
 
 
 /**
- * Ñ­»·×óÒÆint
+ * å¾ªçŽ¯å·¦ç§»byte
  */
-int rolInt(int val, int size)
-{
-  int res = val << size;
-  res |= ((unsigned)val) >> (sizeof(val)*8 - size);
-  return res;
-}
+    unsigned char rolByte(unsigned char val, int size) {
+        unsigned char res = val << size;
+        res |= val >> (sizeof(val) * 8 - size);
+        return res;
+    }
 
-/*Ñ­»·ÓÒÒÆint*/
-int rorInt(int val, int size)
-{
-  int res = ((unsigned)val) >> size;
-  res |= val << (sizeof(val)*8 - size);
-  return res;
-}
+/*å¾ªçŽ¯å³ç§»å­—èŠ‚*/
+    unsigned char rorByte(unsigned char val, int size) {
+        unsigned char res = val >> size;
+        res |= val << (sizeof(val) * 8 - size);
+        return res;
+    }
 
 
-int main5(){
-	testbit();
+/**
+ * å¾ªçŽ¯å·¦ç§»int
+ */
+    int rolInt(int val, int size) {
+        int res = val << size;
+        res |= ((unsigned) val) >> (sizeof(val) * 8 - size);
+        return res;
+    }
 
-	cout<<"Ò»×Ö½ÚÑ­»·×óÒÆ "<<(int)rolByte((char)129,1)<<endl;//10000001->00000011,Êä³ö3
-	cout<<"Ò»×Ö½ÚÑ­»·ÓÒÒÆ "<<(int)rorByte((char)129,1)<<endl;//10000001->11000000,Êä³ö192
-	cout<<"intÑ­»·ÓÒÒÆ "<<(int)rorInt(0x80000000,1)<<endl;//10000000000000000000000000000000->01000000000000000000000000000000,Êä³ö1,073,741,824
-	cout<<"intÑ­»·×óÒÆ "<<(int)rolInt(0x80000001,1)<<endl;//Èç¹û´Ë»úÆ÷intÊÇ32Î»£¬10000000000000000000000000000001->00000000000000000000000000000011,Êä³ö3
+/*å¾ªçŽ¯å³ç§»int*/
+    int rorInt(int val, int size) {
+        int res = ((unsigned) val) >> size;
+        res |= val << (sizeof(val) * 8 - size);
+        return res;
+    }
 
-	return 0;
+
+    int main() {
+        testbit();
+
+        cout << "ä¸€å­—èŠ‚å¾ªçŽ¯å·¦ç§» " << (int) rolByte((char) 129, 1) << endl;//10000001->00000011,è¾“å‡º3
+        cout << "ä¸€å­—èŠ‚å¾ªçŽ¯å³ç§» " << (int) rorByte((char) 129, 1) << endl;//10000001->11000000,è¾“å‡º192
+        cout << "intå¾ªçŽ¯å³ç§» " << (int) rorInt(0x80000000, 1)
+             << endl;//10000000000000000000000000000000->01000000000000000000000000000000,è¾“å‡º1,073,741,824
+        cout << "intå¾ªçŽ¯å·¦ç§» " << (int) rolInt(0x80000001, 1)
+             << endl;//å¦‚æžœæ­¤æœºå™¨intæ˜¯32ä½ï¼Œ10000000000000000000000000000001->00000000000000000000000000000011,è¾“å‡º3
+
+        return 0;
+    }
 }

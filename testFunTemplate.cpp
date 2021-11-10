@@ -2,174 +2,184 @@
 #include <string>
 #include "a.h"
 using namespace std;
-
+namespace TestFunTemplate {
 //-------
-//ÉùÃ÷
-template<typename T>
-void Swaptemplate(T &a,T &b);//µ±È»ÓÉÓÚÏÂÃæ½ô¸úµÄ¾ÍÊÇÊµÏÖ£¬ËùÒÔÕâÀïÆäÊµÊÇ²»ĞèÒªµÄ¡£Ö»ÊÇÑİÊ¾Óï·¨¡£
+//å£°æ˜
+    template<typename T>
+    void Swaptemplate(T &a, T &b);//å½“ç„¶ç”±äºä¸‹é¢ç´§è·Ÿçš„å°±æ˜¯å®ç°ï¼Œæ‰€ä»¥è¿™é‡Œå…¶å®æ˜¯ä¸éœ€è¦çš„ã€‚åªæ˜¯æ¼”ç¤ºè¯­æ³•ã€‚
 
-//ÊµÏÖ
-//º¯ÊıÄ£°å±¾Éí²»»áÉú³Éº¯Êı¶¨Òå£¬Ö»ÊÇÌá¹©Ò»¸ö·½°¸£¬ÓÉ±àÒëÆ÷¸ù¾İ´úÂëÉú³É¶¨Òå
-template<class T> //same as template<typename AnyType>,³ı·ÇĞèÒª¿¼ÂÇÏòºó¼æÈİ£¬·ñÔòÓ¦¸Ã¾¡Á¿Ê¹ÓÃtypename
-void Swaptemplate(T &a,T &b){
-	cout<<"ÎÒÊÇÄ£°åSwaptemplate(T &a,T &b)"<<endl;
-	T tmp = a;
-	a = b;
-	b = tmp;
-}
-//ÖØÔØµÄÄ£°å
-template<typename T>
-void Swaptemplate(T a[],T b[],int n){
-	cout<<"ÎÒÊÇÄ£°åSwaptemplate(T &a,T &b,int n)"<<endl;
-	T tmp;
-	for(int i = 0;i<n;i++){
-		tmp = a[i];
-		a[i] = b[i];
-		b[i] = tmp;
-	}
-}
+//å®ç°
+//å‡½æ•°æ¨¡æ¿æœ¬èº«ä¸ä¼šç”Ÿæˆå‡½æ•°å®šä¹‰ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªæ–¹æ¡ˆï¼Œç”±ç¼–è¯‘å™¨æ ¹æ®ä»£ç ç”Ÿæˆå®šä¹‰
+    template<class T>
+    //same as template<typename AnyType>,é™¤ééœ€è¦è€ƒè™‘å‘åå…¼å®¹ï¼Œå¦åˆ™åº”è¯¥å°½é‡ä½¿ç”¨typename
+    void Swaptemplate(T &a, T &b) {
+        cout << "æˆ‘æ˜¯æ¨¡æ¿Swaptemplate(T &a,T &b)" << endl;
+        T tmp = a;
+        a = b;
+        b = tmp;
+    }
+
+//é‡è½½çš„æ¨¡æ¿
+    template<typename T>
+    void Swaptemplate(T a[], T b[], int n) {
+        cout << "æˆ‘æ˜¯æ¨¡æ¿Swaptemplate(T &a,T &b,int n)" << endl;
+        T tmp;
+        for (int i = 0; i < n; i++) {
+            tmp = a[i];
+            a[i] = b[i];
+            b[i] = tmp;
+        }
+    }
 //--------end
-//1. ÒşÊ½ÊµÀı»¯(implicit instantiation)£º ±àÒëÆÚ¼ä£¬µ±ÓĞ´úÂëµ÷ÓÃÊ±£¬±àÒëÆ÷×Ô¶¯¸ù¾İ´«ÈëµÄ²ÎÊıÀàĞÍ£¬´ÓÄ£°åÉú³Éº¯Êı¶¨Òå.¼û tag 1
+//1. éšå¼å®ä¾‹åŒ–(implicit instantiation)ï¼š ç¼–è¯‘æœŸé—´ï¼Œå½“æœ‰ä»£ç è°ƒç”¨æ—¶ï¼Œç¼–è¯‘å™¨è‡ªåŠ¨æ ¹æ®ä¼ å…¥çš„å‚æ•°ç±»å‹ï¼Œä»æ¨¡æ¿ç”Ÿæˆå‡½æ•°å®šä¹‰.è§ tag 1
 
-//2. ÏÔÊ½ÊµÀı»¯(explicit instantiation)£º Í¨¹ıÏÂÃæµÄÉùÃ÷£¬Ã÷È·ÒªÇó±àÒëÆ÷¸ù¾İÄ£°åÉú³Éº¯Êı¶¨Òå
-template void Swaptemplate<long>(long&, long&);//templateºóÃæÃ»ÓĞ<>,±íÊ¾ÏÔÊ½ÊµÀı»¯£¬±àÒëÆ÷´ÓÄ£°åÉú³ÉÊµÏÖ£¬ËùÒÔºóÃæ²»ĞèÒªº¯Êı¶¨Òå£¬ÕâµãÇø±ğÓÚÏÔÊ½¾ßÌå»¯
-template void Swaptemplate<float>(float&, float&);
-//¼ÈÈ»¿ÉÒÔÒşÊ½ÊµÀı»¯£¬ÄÇÎªÊ²Ã´»¹ĞèÒªÏÔÊ½ÊµÀı»¯ÄØ£¿Çë´ò¿ªa.h ºÍa.cpp ,ÎªÁËÒş²ØÂß¼­£¬ÎÒ½«fooµÄÊµÏÖ·ÅÔÚa.cppÀï£¬a.hÖĞÖ»ÓĞÉùÃ÷£¬ÄÇÃ´±ØĞëÔÚa.cppÀïÃæÏÔÊ½ÊµÀı»¯£¬²ÅÄÜµ÷ÓÃ£¬·ñÔò¸Ãº¯Êı²»´æÔÚ(ÎŞ·¨½âÎöµÄÍâ²¿·ûºÅ)¡£
-//Ò²¾ÍÊÇËµ£¬ÒşÊ½ÊµÀı»¯Ö»ÄÜ×Ô¶¯Éú³É±¾ÎÄ¼şµÄ»òÕß±»includeµ½±¾ÎÄ¼şµÄÄ£°åº¯Êı¡£¼ÙÉèÄãĞ´µÄÊÇÒ»¸ö¿â£¬´ò°üºó¸ø±ğÈËÓÃ£¬ÄÇÃ´±ØĞëÏÔÊ½ÊµÀı»¯¡£
+//2. æ˜¾å¼å®ä¾‹åŒ–(explicit instantiation)ï¼š é€šè¿‡ä¸‹é¢çš„å£°æ˜ï¼Œæ˜ç¡®è¦æ±‚ç¼–è¯‘å™¨æ ¹æ®æ¨¡æ¿ç”Ÿæˆå‡½æ•°å®šä¹‰
+    template void Swaptemplate<long>(long &, long &);//templateåé¢æ²¡æœ‰<>,è¡¨ç¤ºæ˜¾å¼å®ä¾‹åŒ–ï¼Œç¼–è¯‘å™¨ä»æ¨¡æ¿ç”Ÿæˆå®ç°ï¼Œæ‰€ä»¥åé¢ä¸éœ€è¦å‡½æ•°å®šä¹‰ï¼Œè¿™ç‚¹åŒºåˆ«äºæ˜¾å¼å…·ä½“åŒ–
+    template void Swaptemplate<float>(float &, float &);
+//æ—¢ç„¶å¯ä»¥éšå¼å®ä¾‹åŒ–ï¼Œé‚£ä¸ºä»€ä¹ˆè¿˜éœ€è¦æ˜¾å¼å®ä¾‹åŒ–å‘¢ï¼Ÿè¯·æ‰“å¼€a.h å’Œa.cpp ,ä¸ºäº†éšè—é€»è¾‘ï¼Œæˆ‘å°†fooçš„å®ç°æ”¾åœ¨a.cppé‡Œï¼Œa.hä¸­åªæœ‰å£°æ˜ï¼Œé‚£ä¹ˆå¿…é¡»åœ¨a.cppé‡Œé¢æ˜¾å¼å®ä¾‹åŒ–ï¼Œæ‰èƒ½è°ƒç”¨ï¼Œå¦åˆ™è¯¥å‡½æ•°ä¸å­˜åœ¨(æ— æ³•è§£æçš„å¤–éƒ¨ç¬¦å·)ã€‚
+//ä¹Ÿå°±æ˜¯è¯´ï¼Œéšå¼å®ä¾‹åŒ–åªèƒ½è‡ªåŠ¨ç”Ÿæˆæœ¬æ–‡ä»¶çš„æˆ–è€…è¢«includeåˆ°æœ¬æ–‡ä»¶çš„æ¨¡æ¿å‡½æ•°ã€‚å‡è®¾ä½ å†™çš„æ˜¯ä¸€ä¸ªåº“ï¼Œæ‰“åŒ…åç»™åˆ«äººç”¨ï¼Œé‚£ä¹ˆå¿…é¡»æ˜¾å¼å®ä¾‹åŒ–ã€‚
 
-//ÆÕÍ¨µÄº¯ÊıÉùÃ÷£¬¸úÄ£°åÎŞ¹Ø£¬µ«ÊÇ·ÇÄ£°åµÄÉùÃ÷£¬ÓÅÏÈ¼¶±ÈÏÔÊ½ÊµÀı»¯µÄÉùÃ÷¸ß£¬ËùÒÔÏÂÃæÒª×¢ÊÍµô£¬·ñÔò½«µ÷ÓÃ·ÇÄ£°å°æ±¾
+//æ™®é€šçš„å‡½æ•°å£°æ˜ï¼Œè·Ÿæ¨¡æ¿æ— å…³ï¼Œä½†æ˜¯éæ¨¡æ¿çš„å£°æ˜ï¼Œä¼˜å…ˆçº§æ¯”æ˜¾å¼å®ä¾‹åŒ–çš„å£°æ˜é«˜ï¼Œæ‰€ä»¥ä¸‹é¢è¦æ³¨é‡Šæ‰ï¼Œå¦åˆ™å°†è°ƒç”¨éæ¨¡æ¿ç‰ˆæœ¬
 //void Swaptemplate(long,long);
 
-//3. ÏÔÊ½ÌØÊâ»¯£¨ÏÔÊ½×¨ÓÃ»¯¡¢ÏÔÊ½¾ßÌå»¯£©£¨explicit specialization£© : ÓĞµÄÊ±ºò£¬¶ÔÓÚÄ³¸öÀàĞÍ£¬Ä£°åº¯ÊıÖĞµÄÂß¼­²»ÊÊÓÃ£¬Ï£ÍûÕë¶ÔÕâÖÖÀàĞÍ×¨ÃÅÊµÏÖÒ»Ì×Âß¼­¡£
-template<> void Swaptemplate(string& a,string& b);//ÉùÃ÷¡£µ±È»ÓÉÓÚÏÂÃæ½ô¸úµÄ¾ÍÊÇÊµÏÖ£¬ËùÒÔÕâÀïÆäÊµÊÇ²»ĞèÒªµÄ¡£Ö»ÊÇÑİÊ¾Óï·¨¡£
-template<> void Swaptemplate(string& a,string& b){//ÊµÏÖ
-	cout<<"ÎÒÊÇÄ£°åSwaptemplateµÄÌØÀı»°"<<endl;
-}
+//3. æ˜¾å¼ç‰¹æ®ŠåŒ–ï¼ˆæ˜¾å¼ä¸“ç”¨åŒ–ã€æ˜¾å¼å…·ä½“åŒ–ï¼‰ï¼ˆexplicit specializationï¼‰ : æœ‰çš„æ—¶å€™ï¼Œå¯¹äºæŸä¸ªç±»å‹ï¼Œæ¨¡æ¿å‡½æ•°ä¸­çš„é€»è¾‘ä¸é€‚ç”¨ï¼Œå¸Œæœ›é’ˆå¯¹è¿™ç§ç±»å‹ä¸“é—¨å®ç°ä¸€å¥—é€»è¾‘ã€‚
+    template<>
+    void Swaptemplate(string &a, string &b);//å£°æ˜ã€‚å½“ç„¶ç”±äºä¸‹é¢ç´§è·Ÿçš„å°±æ˜¯å®ç°ï¼Œæ‰€ä»¥è¿™é‡Œå…¶å®æ˜¯ä¸éœ€è¦çš„ã€‚åªæ˜¯æ¼”ç¤ºè¯­æ³•ã€‚
+    template<>
+    void Swaptemplate(string &a, string &b) {//å®ç°
+        cout << "æˆ‘æ˜¯æ¨¡æ¿Swaptemplateçš„ç‰¹ä¾‹è¯" << endl;
+    }
+
+
+//æ¨¡æ¿çš„çŸ¥è¯†å¯ä»¥å‚è€ƒ https://qixinbo.info/2017/07/09/cplusplus-template/
+    int main() {
+        int s1 = 2, s2 = 3;
+        //éšå¼å®ä¾‹åŒ–
+        Swaptemplate(s1, s2);//tag 1
+
+        long s3 = 2, s4 = 3;
+        Swaptemplate(s3, s4);
+
+        int a = 1;
+        foo(a);
+
+        string aStr = "aa";
+        string bStr = "bb";
+        Swaptemplate(aStr, bStr);
+
+        //æ˜¾å¼æ¨¡æ¿å®å‚ï¼šé€‚ç”¨äºå‡½æ•°æ¨¡æ¿ï¼Œå³åœ¨è°ƒç”¨å‡½æ•°æ—¶æ˜¾å¼æŒ‡å®šè¦è°ƒç”¨çš„å®å‚çš„ç±»å‹
+        cout << "æ˜¾å¼æ¨¡æ¿å®å‚:" << endl;
+        //Swaptemplate<short>(s1,s2);æ˜ç¡®æŒ‡å®šæ¨¡æ¿ä»£è¡¨çš„ç±»å‹æ˜¯shortã€‚è¿™é‡Œä¼šæŠ¥é”™ï¼šä¸èƒ½å°†å‚æ•° 1 ä»â€œintâ€è½¬æ¢ä¸ºâ€œshort &â€
+        Swaptemplate<short>((short &) s1, (short &) s2);
 
 
 
-//Ä£°åµÄÖªÊ¶¿ÉÒÔ²Î¿¼ https://qixinbo.info/2017/07/09/cplusplus-template/
-int main_ft(){
-	int s1 = 2,s2 = 3;
-	//ÒşÊ½ÊµÀı»¯
-	Swaptemplate(s1,s2);//tag 1
+        //å¦‚æœå£°æ˜äº†void change(int a[],int b[],int n);åˆ™ä¼˜å…ˆè°ƒç”¨éæ¨¡æ¿ç‰ˆæœ¬
+        //å¦åˆ™å¦‚æœå£°æ˜äº†template<> void change(int a[],int b[],int n);åˆ™è°ƒç”¨æ¨¡æ¿ç‰¹ä¾‹è¯çš„ç‰ˆæœ¬
+        //å¦åˆ™è°ƒç”¨æ¨¡æ¿å‡½æ•°ã€‚ä¸‹é¢çš„ä»£ç æ¼”ç¤º
 
-	long s3 = 2,s4 = 3;
-	Swaptemplate(s3, s4);
-
-	int a=1;
-	foo(a);
-
-	string aStr = "aa";
-	string bStr = "bb";
-	Swaptemplate(aStr,bStr);
-
-	//ÏÔÊ½Ä£°åÊµ²Î£ºÊÊÓÃÓÚº¯ÊıÄ£°å£¬¼´ÔÚµ÷ÓÃº¯ÊıÊ±ÏÔÊ½Ö¸¶¨Òªµ÷ÓÃµÄÊµ²ÎµÄÀàĞÍ
-	cout<<"ÏÔÊ½Ä£°åÊµ²Î:"<<endl;
-	//Swaptemplate<short>(s1,s2);Ã÷È·Ö¸¶¨Ä£°å´ú±íµÄÀàĞÍÊÇshort¡£ÕâÀï»á±¨´í£º²»ÄÜ½«²ÎÊı 1 ´Ó¡°int¡±×ª»»Îª¡°short &¡±
-	Swaptemplate<short>((short&)s1,(short&)s2);
+        int arr1[] = {1, 2, 3};
+        int arr2[] = {4, 5, 6};
+        void callChange(int arr1[], int arr2[], int len);
+        callChange(arr1, arr2, 3);
 
 
+        void callChange();
+        void callChange2();//å…ˆå£°æ˜
 
-	//Èç¹ûÉùÃ÷ÁËvoid change(int a[],int b[],int n);ÔòÓÅÏÈµ÷ÓÃ·ÇÄ£°å°æ±¾
-	//·ñÔòÈç¹ûÉùÃ÷ÁËtemplate<> void change(int a[],int b[],int n);Ôòµ÷ÓÃÄ£°åÌØÀı»°µÄ°æ±¾
-	//·ñÔòµ÷ÓÃÄ£°åº¯Êı¡£ÏÂÃæµÄ´úÂëÑİÊ¾
-
-	int arr1[]={1,2,3};
-	int arr2[]={4,5,6};
-	void callChange(int arr1[],int arr2[],int len);
-	callChange(arr1,arr2,3);
+        callChange();
+        callChange2();
 
 
-	void callChange();
-	void callChange2();//ÏÈÉùÃ÷
-
-	callChange();
-	callChange2();
-
-
-	return 0;
-}
+        return 0;
+    }
 
 
 //-----------demo2 start
 
-//ÒªÏÈÉùÃ÷Ä£°åÔ­ĞÍ£¬È»ºó²ÅÄÜÉùÃ÷template<> void change(int a[],int b[],int n)
-template<typename AnyType>
-void change(AnyType a[],AnyType b[],int n);
+//è¦å…ˆå£°æ˜æ¨¡æ¿åŸå‹ï¼Œç„¶åæ‰èƒ½å£°æ˜template<> void change(int a[],int b[],int n)
+    template<typename AnyType>
+    void change(AnyType a[], AnyType b[], int n);
 
-void callChange(int arr1[],int arr2[],int len){
-	{
-		//ÉùÃ÷·ÅÔÚ´úÂë¿éÀïÃæ£¬²»Ó°ÏìÍâÃæ¡£µ«ÊÇÄ£°å²»ÄÜÔÚ·½·¨ÌåÄÚÉùÃ÷
-		void change(int a[],int b[],int n);//ÔÚ·½·¨ÌåÄÚÉùÃ÷¡£Èç¹ûÄÃµ½ÍâÃæ£¬×÷ÓÃ·¶Î§±ä´ó»áÓ°ÏìºóÃæµÄ´úÂë
+    void callChange(int arr1[], int arr2[], int len) {
+        {
+            //å£°æ˜æ”¾åœ¨ä»£ç å—é‡Œé¢ï¼Œä¸å½±å“å¤–é¢ã€‚ä½†æ˜¯æ¨¡æ¿ä¸èƒ½åœ¨æ–¹æ³•ä½“å†…å£°æ˜
+            void change(int a[], int b[], int n);//åœ¨æ–¹æ³•ä½“å†…å£°æ˜ã€‚å¦‚æœæ‹¿åˆ°å¤–é¢ï¼Œä½œç”¨èŒƒå›´å˜å¤§ä¼šå½±å“åé¢çš„ä»£ç 
 
-		change(arr1,arr2,len);//µ÷ÓÃÃ»ÓĞÄ£°åµÄ°æ±¾
+            change(arr1, arr2, len);//è°ƒç”¨æ²¡æœ‰æ¨¡æ¿çš„ç‰ˆæœ¬
 
-		//·ÇÄ£°åµÄÉùÃ÷ÊÇint[]ÀàĞÍ£¬ÏÂÃæµÄlong[]ÀàĞÍ£¬ÄÇÃ´ÊÇ·ñ¾ÍÓ¦¸Ãµ÷ÓÃÄ£°åµÄÊµÏÖ°æ±¾ÄØ£¿Êµ¼ù±íÃ÷»¹ÊÇ»áµ÷ÓÃ·ÇÄ£°åÊµÏÖ£¬È»ºó±àÒë±¨´í£¬long[]ÎŞ·¨×ª»»Îªint[]
-		long arr3[]={1,2,3};
-		long arr4[]={4,5,6};
-		//change(arr1,arr4,3);//long[]ÎŞ·¨×ª»»Îªint[]
+            //éæ¨¡æ¿çš„å£°æ˜æ˜¯int[]ç±»å‹ï¼Œä¸‹é¢çš„long[]ç±»å‹ï¼Œé‚£ä¹ˆæ˜¯å¦å°±åº”è¯¥è°ƒç”¨æ¨¡æ¿çš„å®ç°ç‰ˆæœ¬å‘¢ï¼Ÿå®è·µè¡¨æ˜è¿˜æ˜¯ä¼šè°ƒç”¨éæ¨¡æ¿å®ç°ï¼Œç„¶åç¼–è¯‘æŠ¥é”™ï¼Œlong[]æ— æ³•è½¬æ¢ä¸ºint[]
+            long arr3[] = {1, 2, 3};
+            long arr4[] = {4, 5, 6};
+            //change(arr1,arr4,3);//long[]æ— æ³•è½¬æ¢ä¸ºint[]
 
-	}
-	int arr3[]={1,2,3};
-	int arr4[]={4,5,6};
-	//change(arr1,arr4,3);//ÕâÀïµ÷ÓÃµÄ¾ÍÊÇÄ£°åµÄÊµÏÖ°æ±¾ÁË¡£²»¹ıÖ´ĞĞÕâĞĞ»á²úÉúÒ»¸öAnyTypeÎªintµÄº¯ÊıÊµÏÖ£¬¶øºóÃæÓÖÓĞÒ»¸öintÀàĞÍµÄÌØÀı»¯£¬ËùÒÔÕâÀï×¢ÊÍµô¡£±Ï¾¹²»ÄÜÓĞÁ½¸öÒ»Ä£Ò»ÑùµÄº¯Êı¡£
-	//Ò²¾ÍÊÇËµ£¬Í¬Ò»¸ö±à³Ìµ¥Ôª£¬Í¬Ò»¸öº¯ÊıÔ­ĞÍ£¬Í¬Ò»ÖÖÀàĞÍ£¬²»ÄÜÒ»ÆğÊ¹ÓÃÏÔÊ½¾ßÌå»¯ºÍÏÔÊ½ÊµÀı
+        }
+        int arr3[] = {1, 2, 3};
+        int arr4[] = {4, 5, 6};
+        //change(arr1,arr4,3);//è¿™é‡Œè°ƒç”¨çš„å°±æ˜¯æ¨¡æ¿çš„å®ç°ç‰ˆæœ¬äº†ã€‚ä¸è¿‡æ‰§è¡Œè¿™è¡Œä¼šäº§ç”Ÿä¸€ä¸ªAnyTypeä¸ºintçš„å‡½æ•°å®ç°ï¼Œè€Œåé¢åˆæœ‰ä¸€ä¸ªintç±»å‹çš„ç‰¹ä¾‹åŒ–ï¼Œæ‰€ä»¥è¿™é‡Œæ³¨é‡Šæ‰ã€‚æ¯•ç«Ÿä¸èƒ½æœ‰ä¸¤ä¸ªä¸€æ¨¡ä¸€æ ·çš„å‡½æ•°ã€‚
+        //ä¹Ÿå°±æ˜¯è¯´ï¼ŒåŒä¸€ä¸ªç¼–ç¨‹å•å…ƒï¼ŒåŒä¸€ä¸ªå‡½æ•°åŸå‹ï¼ŒåŒä¸€ç§ç±»å‹ï¼Œä¸èƒ½ä¸€èµ·ä½¿ç”¨æ˜¾å¼å…·ä½“åŒ–å’Œæ˜¾å¼å®ä¾‹
 
-	long arr5[]={1,2,3};
-	long arr6[]={4,5,6};
-	change(arr5,arr6,3);//µ÷ÓÃÄ£°åµÄÊµÏÖ°æ±¾
-}
+        long arr5[] = {1, 2, 3};
+        long arr6[] = {4, 5, 6};
+        change(arr5, arr6, 3);//è°ƒç”¨æ¨¡æ¿çš„å®ç°ç‰ˆæœ¬
+    }
 
-//ÌØÀı»¯µÄchange·½·¨ÉùÃ÷
-template<> void change(int a[],int b[],int n);
-void callChange(){
-	int arr1[]={1,2,3};
-	int arr2[]={4,5,6};
-	change(arr1,arr2,3);//Ç°ÃæµÄÉùÃ÷ÊÇÌØÀı»°£¬ËùÒÔÕâÀïµ÷ÓÃµÄÌØÀı»°°æ±¾£¬(¼ûtag 2)
-}
+//ç‰¹ä¾‹åŒ–çš„changeæ–¹æ³•å£°æ˜
+    template<>
+    void change(int a[], int b[], int n);
 
-void change(int a[],int b[],int n);//ÉùÃ÷·ÇÄ£°åµÄchange·½·¨
-template<> void change(int a[],int b[],int n);//ÉùÃ÷ÌØÀı»¯µÄchange·½·¨
-void callChange2(){
-	int arr1[]={1,2,3};
-	int arr2[]={4,5,6};
-	change(arr1,arr2,3);//Ç°ÃæÍ¬Ê±ÉùÃ÷ÁË·ÇÄ£°åºÍÄ£°å£¬ÏÔÈ»ÓÅÏÈµ÷ÓÃ·ÇÄ£°å°æ±¾
-}
+    void callChange() {
+        int arr1[] = {1, 2, 3};
+        int arr2[] = {4, 5, 6};
+        change(arr1, arr2, 3);//å‰é¢çš„å£°æ˜æ˜¯ç‰¹ä¾‹è¯ï¼Œæ‰€ä»¥è¿™é‡Œè°ƒç”¨çš„ç‰¹ä¾‹è¯ç‰ˆæœ¬ï¼Œ(è§tag 2)
+    }
+
+    void change(int a[], int b[], int n);//å£°æ˜éæ¨¡æ¿çš„changeæ–¹æ³•
+    template<>
+    void change(int a[], int b[], int n);//å£°æ˜ç‰¹ä¾‹åŒ–çš„changeæ–¹æ³•
+    void callChange2() {
+        int arr1[] = {1, 2, 3};
+        int arr2[] = {4, 5, 6};
+        change(arr1, arr2, 3);//å‰é¢åŒæ—¶å£°æ˜äº†éæ¨¡æ¿å’Œæ¨¡æ¿ï¼Œæ˜¾ç„¶ä¼˜å…ˆè°ƒç”¨éæ¨¡æ¿ç‰ˆæœ¬
+    }
 
 
+//-------------ä¸‹é¢æ˜¯ä¸‰ä¸ªå‡ ä¹ä¸€æ ·çš„æ–¹æ³•ï¼Œé‚£ä¹ˆmainå‡½æ•°é‡Œè°ƒç”¨å“ªä¸ªæ–¹æ³•å–å†³äºï¼Œå‰é¢çš„å£°æ˜æ˜¯å“ªä¸ªç‰ˆæœ¬ã€‚å¦‚æœå£°æ˜äº†å¤šä¸ªï¼Œé‚£ä¹ˆéæ¨¡æ¿ç‰ˆæœ¬æ˜¯ä¼˜å…ˆçº§æœ€é«˜çš„ã€‚
+//æ¨¡æ¿
+    template<typename AnyType>
+    void change(AnyType a[], AnyType b[], int n) {
+        cout << "call change template" << endl;
+        AnyType tmp;
+        for (int i = 0; i < n; i++) {
+            tmp = a[i];
+            a[i] = b[i];
+            b[i] = tmp;
+        }
+    }
 
-//-------------ÏÂÃæÊÇÈı¸ö¼¸ºõÒ»ÑùµÄ·½·¨£¬ÄÇÃ´mainº¯ÊıÀïµ÷ÓÃÄÄ¸ö·½·¨È¡¾öÓÚ£¬Ç°ÃæµÄÉùÃ÷ÊÇÄÄ¸ö°æ±¾¡£Èç¹ûÉùÃ÷ÁË¶à¸ö£¬ÄÇÃ´·ÇÄ£°å°æ±¾ÊÇÓÅÏÈ¼¶×î¸ßµÄ¡£
-//Ä£°å
-template<typename AnyType>
-void change(AnyType a[],AnyType b[],int n){
-	cout<<"call change template" << endl;
-	AnyType tmp;
-	for(int i = 0;i<n;i++){
-		tmp = a[i];
-		a[i] = b[i];
-		b[i] = tmp;
-	}
-}
-//Õë¶ÔintÀàĞÍÌØÀı»°
-template<> void change(int a[],int b[],int n){//tag 2
-	cout<<"call change template specialization" << endl;
-	int tmp;
-	for(int i = 0;i<n;i++){
-		tmp = a[i];
-		a[i] = b[i];
-		b[i] = tmp;
-	}
-}
-//·ÇÄ£°å°æ±¾
-void change(int a[],int b[],int n){
-	cout<<"call change no template" << endl;
-	int tmp;
-	for(int i = 0;i<n;i++){
-		tmp = a[i];
-		a[i] = b[i];
-		b[i] = tmp;
-	}
+//é’ˆå¯¹intç±»å‹ç‰¹ä¾‹è¯
+    template<>
+    void change(int a[], int b[], int n) {//tag 2
+        cout << "call change template specialization" << endl;
+        int tmp;
+        for (int i = 0; i < n; i++) {
+            tmp = a[i];
+            a[i] = b[i];
+            b[i] = tmp;
+        }
+    }
 
-}
+//éæ¨¡æ¿ç‰ˆæœ¬
+    void change(int a[], int b[], int n) {
+        cout << "call change no template" << endl;
+        int tmp;
+        for (int i = 0; i < n; i++) {
+            tmp = a[i];
+            a[i] = b[i];
+            b[i] = tmp;
+        }
+
+    }
 //--------------------------------
+
+}

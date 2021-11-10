@@ -1,22 +1,23 @@
 #include <iostream>
 #include <cctype>
 using namespace std;
+namespace TestChar {
+    void testFunc() {
+        char ch = 'A';
+        cout << "is 'A' Alphabet : " << isalpha(ch) << endl;//æ˜¯ä¸æ˜¯å­—æ¯
 
-void testFunc(){
-	char ch = 'A';
-	cout<<"is 'A' Alphabet : "<<isalpha(ch)<<endl;//ÊÇ²»ÊÇ×ÖÄ¸
-	
-	cout<<"is '5' Alphabet : "<<isalpha('5')<<endl;//·µ»Ø0£¬¼´false
-	cout<<"is '5' digit : "<<isdigit('5')<<endl;//ÊÇ²»ÊÇÊý×Ö
+        cout << "is '5' Alphabet : " << isalpha('5') << endl;//è¿”å›ž0ï¼Œå³false
+        cout << "is '5' digit : " << isdigit('5') << endl;//æ˜¯ä¸æ˜¯æ•°å­—
 
-	cout<<"is '5' punctuation : "<<ispunct('5')<<endl;//ÊÇ²»ÊÇ±êµã·ûºÅ
-	cout<<"is '.' punctuation : "<<ispunct('.')<<endl;//ÊÇ²»ÊÇ±êµã·ûºÅ
-	
-	cout<<"'A' to lower "<<(char)tolower('A')<<endl;//×ªÐ¡Ð´
-}
+        cout << "is '5' punctuation : " << ispunct('5') << endl;//æ˜¯ä¸æ˜¯æ ‡ç‚¹ç¬¦å·
+        cout << "is '.' punctuation : " << ispunct('.') << endl;//æ˜¯ä¸æ˜¯æ ‡ç‚¹ç¬¦å·
 
-int main7(){
-	testFunc();
+        cout << "'A' to lower " << (char) tolower('A') << endl;//è½¬å°å†™
+    }
 
-	return 0;
+    int main() {
+        testFunc();
+
+        return 0;
+    }
 }

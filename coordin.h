@@ -1,4 +1,4 @@
-//避免多次包含同一个头文件
+//閬垮厤澶氭鍖呭惈鍚屼竴涓ご鏂囦欢
 #ifndef COORDIN_H_
 #define COORDIN_H_
 

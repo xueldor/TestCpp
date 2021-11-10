@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <new.h>
 
-//±¾Ê¾ÀıÓÃÀ´ÆÊÎönewµÄ±¾ÖÊ¡£
+//æœ¬ç¤ºä¾‹ç”¨æ¥å‰–ænewçš„æœ¬è´¨ã€‚
 namespace test_new {
 class A
 {
@@ -11,42 +11,46 @@ private:
 
 public:
 	A(int i) : id(i) {}
+	void init(int i){
+	    id = i;
+	}
 	void Say() { printf("id=%d\n", id); }
 
 };
 
 /*
-´óÖÂÏàµ±ÓÚnew A(3)¡£
-1¡¢malloc·ÖÅäÄÚ´æ£¬ÓÃsizeof¼ÆËã¶ÔÏó´óĞ¡¡£
-2¡¢µ÷ÓÃ¹¹Ôìº¯Êı¡£×¢ÒâÒª¼ÓA::¡£µ÷ÓÃÆÕÍ¨·½·¨µ±È»²»ĞèÒª¡£
-3¡¢·µ»ØÖ¸Õë
+å¤§è‡´ç›¸å½“äºnew A(3)ã€‚
+1ã€mallocåˆ†é…å†…å­˜ï¼Œç”¨sizeofè®¡ç®—å¯¹è±¡å¤§å°ã€‚
+2ã€è°ƒç”¨æ„é€ å‡½æ•°ã€‚æ³¨æ„è¦åŠ A::ã€‚è°ƒç”¨æ™®é€šæ–¹æ³•å½“ç„¶ä¸éœ€è¦ã€‚(æ–°ç¼–è¯‘å™¨å·²ç»ä¸æ”¯æŒ)
+3ã€è¿”å›æŒ‡é’ˆ
 
-µ±È»£¬Êµ¼ÊÖĞnewµÄÊµÏÖ¸ü¸´ÔÓ£¬±ÈÈç·ÖÅäÄÚ´æÊ§°ÜÊ±µÄÒì³£´¦ÀíµÈ¡£Òò´ËÎÒÃÇÒª¾¡¿ÉÄÜµÄÊ¹ÓÃnew¡£
+å½“ç„¶ï¼Œå®é™…ä¸­newçš„å®ç°æ›´å¤æ‚ï¼Œæ¯”å¦‚åˆ†é…å†…å­˜å¤±è´¥æ—¶çš„å¼‚å¸¸å¤„ç†ç­‰ã€‚å› æ­¤æˆ‘ä»¬è¦å°½å¯èƒ½çš„ä½¿ç”¨newã€‚
 */
 A* newA(){
 	A* pa = (A*)malloc(sizeof(A)); 
-	pa->A::A(3);
+//	pa->A::A(3);//invalid on new compiler
+    pa->init(3);
 	return pa;
 }
 
 
-//C++ÖĞµÄnew, ÈıÖÖÓÃ·¨£º
-//1¡¢new operator£¬¾ÍÊÇnewÒ»¸ö¶ÔÏó¡£±ÈÈçnew A;
-//2¡¢operator new: ÖØÔØnew
-//3¡¢placement new: ÔÚÓÃ»§Ö¸¶¨µÄÄÚ´æÉÏ¹¹Ôì¶ÔÏó£¬ÄÚ´æ¿ÉÒÔÊÇÕ»Çø¡£ĞèÒª#include <new.h>
+//C++ä¸­çš„new, ä¸‰ç§ç”¨æ³•ï¼š
+//1ã€new operatorï¼Œå°±æ˜¯newä¸€ä¸ªå¯¹è±¡ã€‚æ¯”å¦‚new A;
+//2ã€operator new: é‡è½½new
+//3ã€placement new: åœ¨ç”¨æˆ·æŒ‡å®šçš„å†…å­˜ä¸Šæ„é€ å¯¹è±¡ï¼Œå†…å­˜å¯ä»¥æ˜¯æ ˆåŒºã€‚éœ€è¦#include <new.h>
 class AB
 {
 	int member;
 public: 
-	//ÖØÔØnew·ûºÅ
+	//é‡è½½newç¬¦å·
 	static void* operator new(size_t size)
-	{//ÏÈ´òÓ¡ÈÕÖ¾£¬ÔÙµ÷ÓÃÈ«¾ÖµÄnew£¨Ò²¾ÍÊÇÔ­À´µÄnew£©
+	{//å…ˆæ‰“å°æ—¥å¿—ï¼Œå†è°ƒç”¨å…¨å±€çš„newï¼ˆä¹Ÿå°±æ˜¯åŸæ¥çš„newï¼‰
 		printf("AB::operator new called,size=%d\n",size); 
 		return ::operator new(size);
 	}
-	//ÖØÔØdelete·ûºÅ
+	//é‡è½½deleteç¬¦å·
 	static void operator delete(void* pdead)
-	{//ÏÈ´òÓ¡ÈÕÖ¾£¬ÔÙµ÷ÓÃÈ«¾ÖµÄdelete£¨Ò²¾ÍÊÇÔ­À´µÄdelete£©
+	{//å…ˆæ‰“å°æ—¥å¿—ï¼Œå†è°ƒç”¨å…¨å±€çš„deleteï¼ˆä¹Ÿå°±æ˜¯åŸæ¥çš„deleteï¼‰
 		printf("AB::operator delete called\n"); 
 		return ::operator delete(pdead);
 	}
@@ -58,16 +62,16 @@ public:
 		return tmp;
 	}
 	static void operator delete[](void* pdead, size_t tt){
-		printf("AB::operator delete[] called,point at %p\n",pdead);//pdeadÖ¸Ïò ¡°±íÊ¾Êı×é³¤¶ÈµÄËÄ¸ö×Ö½Ú¡±µÄÊ×µØÖ·£¬¶ø²»ÊÇÊı×éµÄÊ×µØÖ·¡£ËùÒÔfree(pdead)ÊÇ³¹µ×µÄ¡£
+		printf("AB::operator delete[] called,point at %p\n",pdead);//pdeadæŒ‡å‘ â€œè¡¨ç¤ºæ•°ç»„é•¿åº¦çš„å››ä¸ªå­—èŠ‚â€çš„é¦–åœ°å€ï¼Œè€Œä¸æ˜¯æ•°ç»„çš„é¦–åœ°å€ã€‚æ‰€ä»¥free(pdead)æ˜¯å½»åº•çš„ã€‚
 		free(pdead);
 	}
 
 	~AB(){}
 };
 
+}//end of namespace
 
-}
-int main15(){
+int main_new(){
 	test_new::A* pa = new test_new::A(5);
 	pa->Say();
 	delete pa;
@@ -78,30 +82,48 @@ int main15(){
 
 	test_new::AB *pab = new test_new::AB;
 	delete pab;
-	//µ±ÏÔÊ½µ÷ÓÃoperator newÊ±£¬Òª×Ô¼º¼ÆËã¶ÔÏóµÄ´óĞ¡¡£
+	//å½“æ˜¾å¼è°ƒç”¨operator newæ—¶ï¼Œè¦è‡ªå·±è®¡ç®—å¯¹è±¡çš„å¤§å°ã€‚
 	test_new::AB* pab2 = (test_new::AB*)test_new::AB::operator new(sizeof(test_new::AB));
 	delete pab2;
 
-	//Í¨¹ıprintf("AB::operator new[] called,size=%d\n",size); ´òÓ¡µÄÈÕÖ¾£¬Äã»á¿´µ½size=28
-	//Ò»¸ö¶ÔÏó´óĞ¡ÊÇ4byte¡£Êı×éÊÇ6£¬ÄÇÃ´ÄÚ´æÓ¦¸ÃÊÇ4*6=24¡£¶à³ö4byte£¬ÓÃÀ´¼ÇÂ¼Êı×éµÄ³¤¶È£¬ÕâÑùdelete[]Ê±£¬²ÅÖªµÀÊı×é´óĞ¡¡£
+	//é€šè¿‡printf("AB::operator new[] called,size=%d\n",size); æ‰“å°çš„æ—¥å¿—ï¼Œä½ ä¼šçœ‹åˆ°size=28
+	//ä¸€ä¸ªå¯¹è±¡å¤§å°æ˜¯4byteã€‚æ•°ç»„æ˜¯6ï¼Œé‚£ä¹ˆå†…å­˜åº”è¯¥æ˜¯4*6=24ã€‚å¤šå‡º4byteï¼Œç”¨æ¥è®°å½•æ•°ç»„çš„é•¿åº¦ï¼Œè¿™æ ·delete[]æ—¶ï¼Œæ‰çŸ¥é“æ•°ç»„å¤§å°ã€‚
 	test_new::AB *pabArr = new test_new::AB[6];
-	//printf("pointer new() at %p\n",tmp);¸úÏÂÃæÕâĞĞ´òÓ¡µÄµØÖ·£¬Ïà²îÁË4¸ö×Ö½Ú¡£
+	//printf("pointer new() at %p\n",tmp);è·Ÿä¸‹é¢è¿™è¡Œæ‰“å°çš„åœ°å€ï¼Œç›¸å·®äº†4ä¸ªå­—èŠ‚ã€‚
 	printf("pointer new[] at %p\n",pabArr);
-	//µ«Õâ²¢²»ÊÇ¾ø¶ÔµÄ¡£±ÈÈç°ÑABÀàµÄÎö¹¹º¯ÊıÉ¾µô£¬¾Í²»»á·ÖÅä¶îÍâµÄ4×Ö½ÚÁË¡£ÎÒÃÇ²»Òª¹ØĞÄÊ²Ã´Ê±ºò»á·ÖÅä¡£
+	//ä½†è¿™å¹¶ä¸æ˜¯ç»å¯¹çš„ã€‚æ¯”å¦‚æŠŠABç±»çš„ææ„å‡½æ•°åˆ æ‰ï¼Œå°±ä¸ä¼šåˆ†é…é¢å¤–çš„4å­—èŠ‚äº†ã€‚æˆ‘ä»¬ä¸è¦å…³å¿ƒä»€ä¹ˆæ—¶å€™ä¼šåˆ†é…ã€‚
 
 	delete []pabArr;
 
-	//placement new,Òª#include <new.h>
-	int place[3] = {7,2,3};
-	int* pplace = new(place)int;
-	int* pplace2 = new(place + 1)int;
-	int* pplace3 = new(&place[2])int;
-	printf("pplace=%d\n",*pplace);
-	printf("pplace=%d\n",*pplace2);
-	printf("pplace=%d\n",*pplace3);
-
-
+	//---------æµ‹è¯•placement new,è¦#include <new>
+    void testplacementNew();//å£°æ˜
+    testplacementNew();
+    //-----------------
 
 	return 0;
+
+}
+//æŒ‡å®šä½ç½®æ„é€ å¯¹è±¡ã€‚å¯ä»¥åœ¨æ ˆä¸Šï¼Œä¹Ÿå¯ä»¥åœ¨å †ä¸Š
+#include<new>
+void testplacementNew(){
+    //test 1
+    int place[3] = {7,2,3};
+    int* pplace = new(place)int;
+    int* pplace2 = new(place + 1)int;
+    int* pplace3 = new(&place[2])int;
+    printf("pplace=%d\n",*pplace);
+    printf("pplace=%d\n",*pplace2);
+    printf("pplace=%d\n",*pplace3);
+
+    //test 2
+    using namespace std;
+    char buffer[10];
+    char * pbuf = new (buffer)char;//åœ¨bufferçš„ä½ç½®ç”Ÿæˆå¯¹è±¡ã€‚
+    //åœ°å€åº”è¯¥ä¸€æ ·
+    cout<<"pbufçš„åœ°å€ï¼š"<<(void*)pbuf<<",bufferçš„é¦–åœ°å€ï¼š"<<(void*)buffer<<endl;//è½¬æˆvoid*æ˜¯ä¸ºäº†coutæ‰“å‡ºåœ°å€è€Œä¸æ˜¯å­—ç¬¦ä¸²
+
+    pbuf = new ((int*)buffer+1)char;////åœ¨åœ°å€buffer+sizeof(int)çš„ä½ç½®ç”Ÿæˆå¯¹è±¡ã€‚
+    cout<<"pbufçš„åœ°å€ï¼š"<<(void*)pbuf<<endl;
+    //ä¸éœ€è¦ä½¿ç”¨deleteé‡Šæ”¾ï¼Œè€Œä¸”ä¹Ÿä¸èƒ½è¿™æ ·åš
 
 }

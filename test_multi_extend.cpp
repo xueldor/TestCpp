@@ -1,75 +1,80 @@
 /************************************************************************/
-/* ÑİÊ¾Ò»ÏÂ¶àÖØ¼Ì³Ğ¡¢¶şÒåĞÔÎÊÌâ                                         */
+/* æ¼”ç¤ºä¸€ä¸‹å¤šé‡ç»§æ‰¿ã€äºŒä¹‰æ€§é—®é¢˜                                         */
 /************************************************************************/
 #include <iostream>
 using namespace std;
 
-class Base{
-protected:
-	long id;
-public:
-	Base(long i=0):id(i){};
+namespace TestMutiExtend {
+    class Base {
+    protected:
+        long id;
+    public:
+        Base(long i = 0) : id(i) {};
 
-	//Ö»ÒªÏÔÊ½Ìá¹©ÁË¹¹Ôìº¯Êı(²»¹ÜÎŞ²Î»¹ÊÇÓĞ²Î)£¬¾Í±ØĞëÌá¹©virtualµÄÎö¹¹º¯Êı¡£·ñÔòvsÉÏÃæ±¨Stack around the variable 'XXX' was corrupted¡£
-	//Ô­ÒòÎ´Öª£¬Ò²ÎŞ·¨Àí½â¡£linuxÉÏÃæÓÃg++±àÒëÊÇÃ»Õâ¸öÎÊÌâµÄ¡£
-	virtual ~Base(){}
-};
-class A:public Base{
+        //åªè¦æ˜¾å¼æä¾›äº†æ„é€ å‡½æ•°(ä¸ç®¡æ— å‚è¿˜æ˜¯æœ‰å‚)ï¼Œå°±å¿…é¡»æä¾›virtualçš„ææ„å‡½æ•°ã€‚å¦åˆ™vs2008ä¸Šé¢æŠ¥Stack around the variable 'XXX' was corruptedã€‚
+        //åŸå› æœªçŸ¥ï¼Œä¹Ÿæ— æ³•ç†è§£ã€‚linuxä¸Šé¢ç”¨g++ç¼–è¯‘æ˜¯æ²¡è¿™ä¸ªé—®é¢˜çš„ã€‚
+        virtual ~Base() {}
+    };
 
-};
-class B: public Base{
+    class A : public Base {
 
-};
+    };
 
-class C :A,B{//classÄ¬ÈÏÊÇprivate¼Ì³Ğ,structÔòÄ¬ÈÏpublic
-public:
-	void printId(){
-		//CÀïÃæÓĞÁ½¸öid£¬·Ö±ğ´ÓA/B¼Ì³Ğ¹ıÀ´,ËùÒÔ²»Ö¸¶¨ÓòµÄ»°£¬±àÒëÆ÷²»ÖªµÀ·ÃÎÊµÄÊÇÄÄÒ»¸ö¡£
-		A::id = 1;
-		B::id = 2;
-		//°Ñ¼Ì³Ğ¹ØÏµÓÃÍ¼»­³öÀ´ÊÇÒ»¸öÁâĞÎ¡£Õâ¸ö¼Ì³Ğ¹ØÏµ»¹Ëã±È½Ï¼òµ¥£¬Èç¹û¸ü¸´ÔÓ£¬ÓÃÍ¼¿ÉÒÔÖ±¹ÛµÄ¿´³öÀ´£ºÈçºÎ·ÃÎÊÓĞ¶şÒåĞÔ£¬ÈçºÎ·ÃÎÊÃ»ÓĞ¶şÒåĞÔ¡£
-		cout<<A::id<<endl;//AÖĞµÄid
-		cout<<B::id<<endl;//BÖĞµÄid
+    class B : public Base {
 
-		//cout<<id<<endl;//¶şÒåĞÔ
-		//cout<<Base::id<<endl;//ÀíÂÛÉÏÕâÑùÒ²ÊÇÓĞ¶şÒåĞÔµÄ¡£¾¡¹ÜvsÓÃµÄA::id
+    };
 
-	}
-};
-//Ğé»ùÀàµÄº¬ÒåÊÇ£¬ÑØ×ÅËùÓĞÂ·¾¶£¬ÒÔ"Ğé" µÄ·½Ê½¼Ì³ĞµÄBaseÀà¹²ÏíÒ»¸ö£¬¶ø²»ÊÇ¶à¸ö£¬ÕâÑù¾Í±ÜÃâÁË¶şÒåĞÔµÄÎÊÌâ¡£
-class VA:virtual public Base{
+    class C : A, B {//classé»˜è®¤æ˜¯privateç»§æ‰¿,structåˆ™é»˜è®¤public
+    public:
+        void printId() {
+            //Cé‡Œé¢æœ‰ä¸¤ä¸ªidï¼Œåˆ†åˆ«ä»A/Bç»§æ‰¿è¿‡æ¥,æ‰€ä»¥ä¸æŒ‡å®šåŸŸçš„è¯ï¼Œç¼–è¯‘å™¨ä¸çŸ¥é“è®¿é—®çš„æ˜¯å“ªä¸€ä¸ªã€‚
+            A::id = 1;
+            B::id = 2;
+            //æŠŠç»§æ‰¿å…³ç³»ç”¨å›¾ç”»å‡ºæ¥æ˜¯ä¸€ä¸ªè±å½¢ã€‚è¿™ä¸ªç»§æ‰¿å…³ç³»è¿˜ç®—æ¯”è¾ƒç®€å•ï¼Œå¦‚æœæ›´å¤æ‚ï¼Œç”¨å›¾å¯ä»¥ç›´è§‚çš„çœ‹å‡ºæ¥ï¼šå¦‚ä½•è®¿é—®æœ‰äºŒä¹‰æ€§ï¼Œå¦‚ä½•è®¿é—®æ²¡æœ‰äºŒä¹‰æ€§ã€‚
+            cout << A::id << endl;//Aä¸­çš„id
+            cout << B::id << endl;//Bä¸­çš„id
 
-};
+            //cout<<id<<endl;//äºŒä¹‰æ€§
+            //cout<<Base::id<<endl;//ç†è®ºä¸Šè¿™æ ·ä¹Ÿæ˜¯æœ‰äºŒä¹‰æ€§çš„ã€‚å°½ç®¡vsç”¨çš„A::id
 
-class VB:public virtual Base{
+        }
+    };
 
-};
+//è™šåŸºç±»çš„å«ä¹‰æ˜¯ï¼Œæ²¿ç€æ‰€æœ‰è·¯å¾„ï¼Œä»¥"è™š" çš„æ–¹å¼ç»§æ‰¿çš„Baseç±»å…±äº«ä¸€ä¸ªï¼Œè€Œä¸æ˜¯å¤šä¸ªï¼Œè¿™æ ·å°±é¿å…äº†äºŒä¹‰æ€§çš„é—®é¢˜ã€‚
+    class VA : virtual public Base {
 
-//ÓÉÓÚVA¡¢VB¶¼ÊÇvirtual¼Ì³ĞBase£¬ËùÒÔËûÃÇµÄBaseµÄÍ¬Ò»¸ö£¬¶øB²»ÊÇvirtual£¬ËùÒÔVCÖĞÓĞÁ½¸öBase
-class VC:public VA,VB,B{//VAÊÇ¹«ÓĞ¼Ì³Ğ£¬VBÊÇË½ÓĞ¼Ì³Ğ
-public:
-	void printId(){
-		VA::id = 1;
-		B::id = 4;
-		cout<<VA::id<< "  same as " << VB::id<<endl;
-		cout<<B::id<<endl;
-		VB::id = 2;
-		cout<<VA::id<< "  same as " << VB::id<<endl;
-	}
-};
+    };
 
-int main14(){
-	C c;
-	c.printId();
+    class VB : public virtual Base {
+
+    };
+
+//ç”±äºVAã€VBéƒ½æ˜¯virtualç»§æ‰¿Baseï¼Œæ‰€ä»¥ä»–ä»¬çš„Baseçš„åŒä¸€ä¸ªï¼Œè€ŒBä¸æ˜¯virtualï¼Œæ‰€ä»¥VCä¸­æœ‰ä¸¤ä¸ªBase
+    class VC : public VA, VB, B {//VAæ˜¯å…¬æœ‰ç»§æ‰¿ï¼ŒVBæ˜¯ç§æœ‰ç»§æ‰¿
+    public:
+        void printId() {
+            VA::id = 1;
+            B::id = 4;
+            cout << VA::id << "  same as " << VB::id << endl;
+            cout << B::id << endl;
+            VB::id = 2;
+            cout << VA::id << "  same as " << VB::id << endl;
+        }
+    };
+
+    int main() {
+        C c;
+        c.printId();
 
 
-	//Base * base = &c;//¶şÒåĞÔ,ÒòÎªcÖĞÓĞÁ½¸öBase£¬ËùÒÔÄãÒªÏÈ×ª³ÉB»òA
-	Base *baseA = (A*)&c;
-	Base*baseB = (B*)&c;
+        //Base * base = &c;//äºŒä¹‰æ€§,å› ä¸ºcä¸­æœ‰ä¸¤ä¸ªBaseï¼Œæ‰€ä»¥ä½ è¦å…ˆè½¬æˆBæˆ–A
+        Base *baseA = (A *) &c;
+        Base *baseB = (B *) &c;
 
-	cout<<"--------"<<endl;
+        cout << "--------" << endl;
 
-	VC vc;
-	vc.printId();
-	return 0;
+        VC vc;
+        vc.printId();
+        return 0;
+    }
 }

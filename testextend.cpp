@@ -17,75 +17,75 @@ public :
 	A* get(){return this;}
 
 	/*
-	Îö¹¹º¯Êý±ØÐëÉùÃ÷Îªvirtual£¬ÒòÎª£¬
-	¼ÙÉèÓÐ A* a = new B;
-	Èç¹û²»ÊÇvirtual£¬ÄÇÃ´delete a, »áÖ»µ÷ÓÃAµÄÎö¹¹º¯Êý¡£BÖÐ·ÖÅäµÄ×ÊÔ´ÎÞ·¨ÊÍ·Å¡£
-	¶øÈç¹ûÊÇvirtual£¬delete a£¬»áÏÈµ÷ÓÃ ~B(), ÔÙµ÷ÓÃ ~A()
+	æžæž„å‡½æ•°å¿…é¡»å£°æ˜Žä¸ºvirtualï¼Œå› ä¸ºï¼Œ
+	å‡è®¾æœ‰ A* a = new B;
+	å¦‚æžœä¸æ˜¯virtualï¼Œé‚£ä¹ˆdelete a, ä¼šåªè°ƒç”¨Açš„æžæž„å‡½æ•°ã€‚Bä¸­åˆ†é…çš„èµ„æºæ— æ³•é‡Šæ”¾ã€‚
+	è€Œå¦‚æžœæ˜¯virtualï¼Œdelete aï¼Œä¼šå…ˆè°ƒç”¨ ~B(), å†è°ƒç”¨ ~A()
 	*/
 	virtual ~A(){}
 };
 class B:public A{
 public :
-	//×ÓÀàµÄ¹¹Ôìº¯Êý×ÜÊÇÒªµ÷ÓÃ¸¸ÀàµÄ¹¹Ôìº¯Êý¡£Ä¬ÈÏµ÷ÓÃ¸¸ÀàµÄÎÞ²Î¹¹Ôìº¯Êý
+	//å­ç±»çš„æž„é€ å‡½æ•°æ€»æ˜¯è¦è°ƒç”¨çˆ¶ç±»çš„æž„é€ å‡½æ•°ã€‚é»˜è®¤è°ƒç”¨çˆ¶ç±»çš„æ— å‚æž„é€ å‡½æ•°
 	B(int a,int b){}
-	//Í¨¹ý³ÉÔ±³õÊ¼»¯ÁÐ±íµ÷ÓÃ¸¸Àà¹¹Ôìº¯Êý
+	//é€šè¿‡æˆå‘˜åˆå§‹åŒ–åˆ—è¡¨è°ƒç”¨çˆ¶ç±»æž„é€ å‡½æ•°
 	B(int a):A(a){}
 	B():A(1){}
 
 	void show(){cout<<"B show"<<endl;}
 	virtual void show(int a){cout<<"virtual B show a"<<endl;}
 
-	//ÒòÎª¸¸ÀàÖÐÉùÃ÷Îªvirtual£¬¹ÊÔÚ×ÓÀàÀï£¬×Ô¶¯ÊÇvirtual
+	//å› ä¸ºçˆ¶ç±»ä¸­å£°æ˜Žä¸ºvirtualï¼Œæ•…åœ¨å­ç±»é‡Œï¼Œè‡ªåŠ¨æ˜¯virtual
 	void print(){cout<<"B print"<<endl;}
 
-	//²ÎÊýÍêÈ«Óë¸¸ÀàÏàÍ¬£¬Ö»ÊÇ·µ»ØÀàÐÍ²»Í¬¡£³ÆÎª·µ»ØÀàÐÍÐ­±ä¡£
+	//å‚æ•°å®Œå…¨ä¸Žçˆ¶ç±»ç›¸åŒï¼Œåªæ˜¯è¿”å›žç±»åž‹ä¸åŒã€‚ç§°ä¸ºè¿”å›žç±»åž‹åå˜ã€‚
 	B* get(){return this;}
 };
 
 class C{
 public:
-	virtual int c()=0;//´¿Ðéº¯Êý£¬ÀàËÆjavaµÄabstract »ò½Ó¿Ú
+	virtual int c()=0;//çº¯è™šå‡½æ•°ï¼Œç±»ä¼¼javaçš„abstract æˆ–æŽ¥å£
 };
 
-int main13(){
+int main_extend(){
 	A a;
 	B b;
-	a.show();//ÉùÃ÷ÀàÐÍºÍ¶ÔÏóÀàÐÍÊÇA£¬ËùÒÔµ÷ÓÃAµÄ·½·¨¡£
-	b.show();//ÉùÃ÷ÀàÐÍºÍ¶ÔÏóÀàÐÍÊÇB£¬ËùÒÔµ÷ÓÃBµÄ·½·¨¡£
+	a.show();//å£°æ˜Žç±»åž‹å’Œå¯¹è±¡ç±»åž‹æ˜¯Aï¼Œæ‰€ä»¥è°ƒç”¨Açš„æ–¹æ³•ã€‚
+	b.show();//å£°æ˜Žç±»åž‹å’Œå¯¹è±¡ç±»åž‹æ˜¯Bï¼Œæ‰€ä»¥è°ƒç”¨Bçš„æ–¹æ³•ã€‚
 
 	A *ap = &b;
-	//Ö¸ÕëµÄÀàÐÍÊÇA,¶øÊµ¼ÊÀàÐÍÊÇB£¬Òª¿´·½·¨ÊÇ²»ÊÇvirtualµÄ
-	ap->show();//·Çvirtual£¬¾²Ì¬Áª±à£¬µ÷ÓÃÖ¸ÕëÀàÐÍµÄ·½·¨
-	ap->show(1);//virtual£¬¶¯Ì¬Áª±à£¬µ÷ÓÃ¶ÔÏóÕæÊµÀàÐÍµÄ·½·¨
+	//æŒ‡é’ˆçš„ç±»åž‹æ˜¯A,è€Œå®žé™…ç±»åž‹æ˜¯Bï¼Œè¦çœ‹æ–¹æ³•æ˜¯ä¸æ˜¯virtualçš„
+	ap->show();//éžvirtualï¼Œé™æ€è”ç¼–ï¼Œè°ƒç”¨æŒ‡é’ˆç±»åž‹çš„æ–¹æ³•
+	ap->show(1);//virtualï¼ŒåŠ¨æ€è”ç¼–ï¼Œè°ƒç”¨å¯¹è±¡çœŸå®žç±»åž‹çš„æ–¹æ³•
 
-	//·½·¨µÄÒþ²Ø¡£Ö»ÒªBÊµÏÖÁËÄ³¸ö·½·¨£¬¸¸ÀàÀïµÄËùÓÐÍ¬ÃûÖØÔØ·½·¨¶¼±»Òþ²Ø¡£Í¨¹ý¸¸ÀàµÄÒýÓÃ¿ÉÒÔµ÷ÓÃ£¬Í¨¹ý×ÓÀàµ÷ÓÃÔò±àÒë±¨´í¡£
-	ap->show(1,2);//¶ÔÏóÊÇB ÀàÐÍ£¬µ«ÊÇA¿ÉÒÔµ÷ÓÃ¡£
-	/*b.show(1,2);//ÊµÏÖÔÚAÖÐ£¬BÃ»ÓÐÊµÏÖ£¬±»Òþ²Ø£¬B²»ÄÜµ÷ÓÃ
+	//æ–¹æ³•çš„éšè—ã€‚åªè¦Bå®žçŽ°äº†æŸä¸ªæ–¹æ³•ï¼Œçˆ¶ç±»é‡Œçš„æ‰€æœ‰åŒåé‡è½½æ–¹æ³•éƒ½è¢«éšè—ã€‚é€šè¿‡çˆ¶ç±»çš„å¼•ç”¨å¯ä»¥è°ƒç”¨ï¼Œé€šè¿‡å­ç±»è°ƒç”¨åˆ™ç¼–è¯‘æŠ¥é”™ã€‚
+	ap->show(1,2);//å¯¹è±¡æ˜¯B ç±»åž‹ï¼Œä½†æ˜¯Aå¯ä»¥è°ƒç”¨ã€‚
+	/*b.show(1,2);//å®žçŽ°åœ¨Aä¸­ï¼ŒBæ²¡æœ‰å®žçŽ°ï¼Œè¢«éšè—ï¼ŒBä¸èƒ½è°ƒç”¨
 	b.show(1,2,3);*/
-	ap->show(1,2,3);//ÊµÏÖÔÚAÖÐ£¬¶ÔBÒþ²Ø£¬µ«ÊÇ¿ÉÒÔÍ¨¹ýAµ÷ÓÃ
+	ap->show(1,2,3);//å®žçŽ°åœ¨Aä¸­ï¼Œå¯¹Béšè—ï¼Œä½†æ˜¯å¯ä»¥é€šè¿‡Aè°ƒç”¨
 
 
 	b.print();
-	b.tostring();//tostringÊµÏÖÔÚAÖÐ£¬B¼Ì³Ð¹ýÀ´¡£BÖÐÃ»ÓÐÊµÏÖÍ¬ÃûµÄtostring·½·¨£¬ËùÒÔ²»»áÒþ²Ø
+	b.tostring();//tostringå®žçŽ°åœ¨Aä¸­ï¼ŒBç»§æ‰¿è¿‡æ¥ã€‚Bä¸­æ²¡æœ‰å®žçŽ°åŒåçš„tostringæ–¹æ³•ï¼Œæ‰€ä»¥ä¸ä¼šéšè—
 
 	/************************************************************************/
-	/** ÒÔÉÏ²âÊÔ¸æËßÎÒÃÇ£º
-		¼ÙÉè¸¸ÀàÓÐÒ»¸öº¯Êýshow,²¢ÓÐÈô¸É¸öÖØÔØ°æ±¾£¬ÄÇÃ´ÔÚ×ÓÀàÀïÃæ£º
-	    1. ÒªÃ´²»ÒªÊµÏÖshowº¯Êý£¬¼Ì³Ð¸¸ÀàµÄ¡£	
-		2. Ö»ÒªÊµÏÖÁËshowº¯Êý£¬¾ÍÒªÊµÏÖÕâ¸öº¯ÊýµÄËùÓÐÖØÔØº¯Êý¡£·ñÔòÃ»ÓÐÊµÏÖµÄº¯Êý»á¶Ô×ÓÀàÒþ²Ø¡£
-		3. ×ÓÀàÖØÐ´¸¸Àà·½·¨£¬±ØÐë±£Ö¤²ÎÊýºÍ·½·¨ÃûÍêÈ«Ò»ÖÂ¡£·µ»ØÀàÐÍ¿ÉÒÔ²»Í¬¡£
+	/** ä»¥ä¸Šæµ‹è¯•å‘Šè¯‰æˆ‘ä»¬ï¼š
+		å‡è®¾çˆ¶ç±»æœ‰ä¸€ä¸ªå‡½æ•°show,å¹¶æœ‰è‹¥å¹²ä¸ªé‡è½½ç‰ˆæœ¬ï¼Œé‚£ä¹ˆåœ¨å­ç±»é‡Œé¢ï¼š
+	    1. è¦ä¹ˆä¸è¦å®žçŽ°showå‡½æ•°ï¼Œç»§æ‰¿çˆ¶ç±»çš„ã€‚	
+		2. åªè¦å®žçŽ°äº†showå‡½æ•°ï¼Œå°±è¦å®žçŽ°è¿™ä¸ªå‡½æ•°çš„æ‰€æœ‰é‡è½½å‡½æ•°ã€‚å¦åˆ™æ²¡æœ‰å®žçŽ°çš„å‡½æ•°ä¼šå¯¹å­ç±»éšè—ã€‚
+		3. å­ç±»é‡å†™çˆ¶ç±»æ–¹æ³•ï¼Œå¿…é¡»ä¿è¯å‚æ•°å’Œæ–¹æ³•åå®Œå…¨ä¸€è‡´ã€‚è¿”å›žç±»åž‹å¯ä»¥ä¸åŒã€‚
 	  
 	*/
 	/************************************************************************/
 
 
-	cout<<"---------·Ö¸ô 1 ---------"<<endl;
+	cout<<"---------åˆ†éš” 1 ---------"<<endl;
 	b.show();
 	b.A::show();
 
 	b.show(1);
 	b.A::show(1);
-	//ÒÔÉÏ£¬ÑÝÊ¾ÁËÈçºÎµ÷ÓÃ¸¸ÀàµÄº¯Êý¡£
+	//ä»¥ä¸Šï¼Œæ¼”ç¤ºäº†å¦‚ä½•è°ƒç”¨çˆ¶ç±»çš„å‡½æ•°ã€‚
 	return 0;
 
 }

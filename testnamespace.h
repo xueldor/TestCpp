@@ -1,18 +1,18 @@
-//ÑİÊ¾ÃüÃû¿Õ¼ä Í·ÎÄ¼ş
+//æ¼”ç¤ºå‘½åç©ºé—´ å¤´æ–‡ä»¶
 
-//Í·ÎÄ¼şÖĞ½ö°üº¬ÉùÃ÷
-namespace ÕÅÈı{
+//å¤´æ–‡ä»¶ä¸­ä»…åŒ…å«å£°æ˜
+namespace å¼ ä¸‰{
 
 	extern std::string name;
 	void payed();
 }
 
-namespace ÀîËÄ{
+namespace æå››{
 
 	extern std::string name;
 	void payed();
 
-	namespace Ç×¶ù×Ó{
+	namespace äº²å„¿å­{
 		extern std::string name;
 	}
 }

@@ -5,8 +5,8 @@ using namespace std;
 #ifndef STACKTP_H
 #define STACKTP_H
 
-//Ä£°å²»ÊÇÀàºÍ³ÉÔ±µÄ¶¨Òå£¬¶øÊÇ¡°ÈçºÎÉú³ÉÀàºÍ³ÉÔ±¡±µÄ¶¨Òå£¬²»ÄÜµ¥¶À±àÒë£¬±ØĞëÓëÌØ¶¨µÄÄ£°åÊµÀı»¯Ò»ÆğÊ¹ÓÃ¡£
-//»ù±¾ÓÃ·¨
+//æ¨¡æ¿ä¸æ˜¯ç±»å’Œæˆå‘˜çš„å®šä¹‰ï¼Œè€Œæ˜¯â€œå¦‚ä½•ç”Ÿæˆç±»å’Œæˆå‘˜â€çš„å®šä¹‰ï¼Œä¸èƒ½å•ç‹¬ç¼–è¯‘ï¼Œå¿…é¡»ä¸ç‰¹å®šçš„æ¨¡æ¿å®ä¾‹åŒ–ä¸€èµ·ä½¿ç”¨ã€‚
+//åŸºæœ¬ç”¨æ³•
 template <typename T>//or template <class T>
 class Stack{
 private:
@@ -27,7 +27,7 @@ bool Stack<T>::isEmpty(){
 	return top == 0;
 }
 
-//Ä£°å²ÎÊı
+//æ¨¡æ¿å‚æ•°
 template <typename T, int maxsize = 100>//default maxsize is 100
 class Array{
 private:
@@ -46,24 +46,24 @@ int Array<T,maxsize>::maxSize(){
 #endif
 
 int main(){
-	//TÊÇstring
-	Stack<std::string> stackStr;//º¯ÊıÄ£°å¿ÉÒÔ¸ù¾İ²ÎÊıÓÉ±àÒëÆ÷ÒşÊ½µÄÍÆµ¼³öÀàĞÍ¡£µ«ÊÇÀàÄ£°å±ØĞëÏÔÊ½Ö¸¶¨ÀàĞÍ£¬±ÈÈçÕâÀïÊÇstd::string
+	//Tæ˜¯string
+	Stack<std::string> stackStr;//å‡½æ•°æ¨¡æ¿å¯ä»¥æ ¹æ®å‚æ•°ç”±ç¼–è¯‘å™¨éšå¼çš„æ¨å¯¼å‡ºç±»å‹ã€‚ä½†æ˜¯ç±»æ¨¡æ¿å¿…é¡»æ˜¾å¼æŒ‡å®šç±»å‹ï¼Œæ¯”å¦‚è¿™é‡Œæ˜¯std::string
 	cout<<stackStr.isEmpty()<<endl;
 
-	//TÊÇÖ¸Õë
+	//Tæ˜¯æŒ‡é’ˆ
 	Stack<int*> stackInt;
 	cout<<stackInt.isEmpty()<<endl;
 
-	//T»¹¿ÉÒÔÊÇÊı×é£¬µ«ĞèÒª¶ÔStackÀà×öºÏÀíµÄÉè¼Æ£¬ÈÃËûµÄÂß¼­Ö§³ÖTÊÇÊı×é
+	//Tè¿˜å¯ä»¥æ˜¯æ•°ç»„ï¼Œä½†éœ€è¦å¯¹Stackç±»åšåˆç†çš„è®¾è®¡ï¼Œè®©ä»–çš„é€»è¾‘æ”¯æŒTæ˜¯æ•°ç»„
 	Stack<int[5]> stackIntArr;
 	cout<<stackIntArr.isEmpty()<<endl;
 
-	//T´ú±íµÄÀàĞÍÉõÖÁ¿ÉÒÔÇ¶Ì×Ä£°åÀà×ÔÉí
-	Stack<Stack<int>> stackIntStack;
+	//Tä»£è¡¨çš„ç±»å‹ç”šè‡³å¯ä»¥åµŒå¥—æ¨¡æ¿ç±»è‡ªèº«
+	Stack<Stack<int> > stackIntStack;
 	cout<<stackIntStack.isEmpty()<<endl;
 
-	//Í¨¹ıÄ£°å²ÎÊı£¬Ö¸¶¨ArrayµÄ×î´óÈİÁ¿
-	Array<int> arr;//maxsizeÊ¹ÓÃÄ¬ÈÏÖµ(100)
+	//é€šè¿‡æ¨¡æ¿å‚æ•°ï¼ŒæŒ‡å®šArrayçš„æœ€å¤§å®¹é‡
+	Array<int> arr;//maxsizeä½¿ç”¨é»˜è®¤å€¼(100)
 	cout<<arr.maxSize()<<endl;
 	Array<int,15> arr2;//maxsize=15
 	cout<<arr2.maxSize()<<endl;

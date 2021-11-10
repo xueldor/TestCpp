@@ -1,59 +1,59 @@
-//ÑİÊ¾ÃüÃû¿Õ¼ä
+//æ¼”ç¤ºå‘½åç©ºé—´
 #include <iostream>
 #include <string>
 
 using std::cout;
 using std::endl;
 
-namespace ÕÅÈı{
+namespace å¼ ä¸‰{
 
-	std::string name = "ÕÅÈı";
+	std::string name = "å¼ ä¸‰";
 	void payed(){
-		cout<<name<<" payed "<<" 8Ôª"<<endl;
+		cout<<name<<" payed "<<" 8å…ƒ"<<endl;
 	}
 }
 
-namespace ÀîËÄ{
+namespace æå››{
 
-	std::string name = "ÀîËÄ";
+	std::string name = "æå››";
 	void payed(){
-		cout<<name<<" payed "<<" 10Ôª"<<endl;
+		cout<<name<<" payed "<<" 10å…ƒ"<<endl;
 	}
 
-	namespace Ç×¶ù×Ó{
-		std::string name = "ÀîĞ¡ËÄ";
+	namespace äº²å„¿å­{
+		std::string name = "æå°å››";
 	}
 }
 
-namespace{//Î´ÃüÃûµÄnamespace
+namespace{//æœªå‘½åçš„namespace
 
-	//ÒòÎªnamespaceÎŞÃû³Æ£¬¹ÊÎŞ·¨ÔÚÆäËüÎÄ¼şÖĞÒıÓÃ´Ë±äÁ¿¡£Ïàµ±ÓÚÔÚÈ«¾Ö×÷ÓÃÓòÖĞÊ¹ÓÃstaticÉùÃ÷µÄ±äÁ¿
+	//å› ä¸ºnamespaceæ— åç§°ï¼Œæ•…æ— æ³•åœ¨å…¶å®ƒæ–‡ä»¶ä¸­å¼•ç”¨æ­¤å˜é‡ã€‚ç›¸å½“äºåœ¨å…¨å±€ä½œç”¨åŸŸä¸­ä½¿ç”¨staticå£°æ˜çš„å˜é‡
 	int onlyThisFile = 1;
 }
 
-extern void printName();//º¯Êı¿ÉÒÔÊ¡ÂÔextern
+extern void printName();//å‡½æ•°å¯ä»¥çœç•¥extern
 
 int main_space(){
 
-	using namespace ÀîËÄ;
-	cout<<ÀîËÄ::name<<endl;
+	using namespace æå››;
+	cout<<æå››::name<<endl;
 
-	using namespace ÕÅÈı;//OK,using±àÒëÖ¸Áî
-	cout<<ÕÅÈı::name<<endl;
+	using namespace å¼ ä¸‰;//OK,usingç¼–è¯‘æŒ‡ä»¤
+	cout<<å¼ ä¸‰::name<<endl;
 
-	using namespace ÕÅÈı;//OK
-	cout<<ÕÅÈı::name<<endl;
+	using namespace å¼ ä¸‰;//OK
+	cout<<å¼ ä¸‰::name<<endl;
 
-	using ÀîËÄ::name;//usingÉùÃ÷
-	using ÀîËÄ::name;//OK,ÒòÎª²»³åÍ»
-//wrong:³åÍ»	using ÕÅÈı::name;
+	using æå››::name;//usingå£°æ˜
+//	using æå››::name;//OK,å› ä¸ºä¸å†²çª
+//wrong:å†²çª	using å¼ ä¸‰::name;
 
-	cout<<ÀîËÄ::Ç×¶ù×Ó::name<<endl;
+	cout<<æå››::äº²å„¿å­::name<<endl;
 
 	cout<<onlyThisFile<<endl;
 	cout<<::onlyThisFile<<endl;
 
-	printName();//ÔÚÎÄ¼ştestScope2.cppÖĞ
+	printName();//åœ¨æ–‡ä»¶testScope2.cppä¸­
 
 	return 0;
 }

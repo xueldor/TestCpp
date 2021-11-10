@@ -2,6 +2,6 @@
 template<class T>
 void foo(T a)
 {
-	//´òÓ¡a;
+	//æ‰“å°a;
 }
 template void foo<int>(int);

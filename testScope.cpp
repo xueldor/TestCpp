@@ -1,71 +1,80 @@
 #include <iostream>
 #include "coordin.h"
-#include "coordin.h"//Í¨¹ı#ifndefÖ¸ÁîºöÂÔµÚ¶ş´Î°üº¬µÄÄÚÈİ
+#include "coordin.h"//é€šè¿‡#ifndefæŒ‡ä»¤å¿½ç•¥ç¬¬äºŒæ¬¡åŒ…å«çš„å†…å®¹
 
 
-//wrong : auto²»ÄÜÓÃÔÚÕâÀï £ºauto int y;
+//wrong : autoä¸èƒ½ç”¨åœ¨è¿™é‡Œ ï¼šauto int y;
 
 void autoVariable(){
-	//×Ô¶¯±äÁ¿·ÅÔÚÄÚ´æ¶ÑÕ»ÖĞ£¨»òÕßCPU¼Ä´æÆ÷£©
+	//è‡ªåŠ¨å˜é‡æ”¾åœ¨å†…å­˜å †æ ˆä¸­ï¼ˆæˆ–è€…CPUå¯„å­˜å™¨ï¼‰
 	using namespace std;
-	auto int x;//same as int x;auto¼¸ºõ²»»áÊ¹ÓÃ£¬Èç¹ûÊ¹ÓÃ£¬Ö»ÊÇÎªÁËÏò¶ÁÕß³ÎÇåº¬Òå
+	auto int x;//same as int x;autoå‡ ä¹ä¸ä¼šä½¿ç”¨ï¼Œå¦‚æœä½¿ç”¨ï¼Œåªæ˜¯ä¸ºäº†å‘è¯»è€…æ¾„æ¸…å«ä¹‰
 
-	register int y;//¼Ä´æÆ÷±äÁ¿Ã»ÓĞµØÖ·
-	int* py = &y;//ËùÒÔ±àÒëÆ÷Êµ¼ÊÃ»ÓĞÊ¹ÓÃ¼Ä´æÆ÷À´´æ´¢¸Ã±äÁ¿
+	register int y;//å¯„å­˜å™¨å˜é‡æ²¡æœ‰åœ°å€
+	int* py = &y;//æ‰€ä»¥ç¼–è¯‘å™¨å®é™…æ²¡æœ‰ä½¿ç”¨å¯„å­˜å™¨æ¥å­˜å‚¨è¯¥å˜é‡
 	cout<<py<<endl;
 }
 
 int i = 0;
-//---------¾²Ì¬³ÖĞø±äÁ¿Ä¬ÈÏ¶¼ÊÇ0
-//Ö»ÄÜÊ¹ÓÃ³£Á¿±í´ïÊ½À´³õÊ¼»¯
-int global = 1000;//¾²Ì¬´æ´¢£¬Íâ²¿Á´½Ó£¬¼´£º¿ÉÒÔÔÚÆäËüÎÄ¼şÖĞÊ¹ÓÃ¡£ÆäËüÎÄ¼şÓÃexternÉùÃ÷Ò»ÏÂ¾Í¿ÉÒÔÊ¹ÓÃ
-static int global_thisfile = 1200;//¾²Ì¬´æ´¢£¬ÄÚ²¿Á´½Ó£¬¼´£ºÖ»ÔÚ´ËÎÄ¼şÖĞÊ¹ÓÃ
-const int global2 = 44;//µÈ¼ÛÓÚconst static int global2 = 44;¼´¼ÓÁËconst£¬¾ÍÊÇÄÚ²¿Á´½Ó£¬Ö»±¾ÎÄ¼ş¿ÉÓÃ
-extern const int global3 = 54;//ÓÃexternÏÔÊ½Ö¸¶¨ÎªÍâ²¿Á´½Ó£¬È»ºóÔÚÆäËüÎÄ¼şÏÈÓÃexternalÉùÃ÷
+//---------é™æ€æŒç»­å˜é‡é»˜è®¤éƒ½æ˜¯0
+//åªèƒ½ä½¿ç”¨å¸¸é‡è¡¨è¾¾å¼æ¥åˆå§‹åŒ–
+int global = 1000;//é™æ€å­˜å‚¨ï¼Œå¤–éƒ¨é“¾æ¥ï¼Œå³ï¼šå¯ä»¥åœ¨å…¶å®ƒæ–‡ä»¶ä¸­ä½¿ç”¨ã€‚å…¶å®ƒæ–‡ä»¶ç”¨externå£°æ˜ä¸€ä¸‹å°±å¯ä»¥ä½¿ç”¨
+static int global_thisfile = 1200;//é™æ€å­˜å‚¨ï¼Œå†…éƒ¨é“¾æ¥ï¼Œå³ï¼šåªåœ¨æ­¤æ–‡ä»¶ä¸­ä½¿ç”¨
+const int global2 = 44;//ç­‰ä»·äºconst static int global2 = 44;å³åŠ äº†constï¼Œå°±æ˜¯å†…éƒ¨é“¾æ¥ï¼Œåªæœ¬æ–‡ä»¶å¯ç”¨
+extern const int global3 = 54;//ç”¨externæ˜¾å¼æŒ‡å®šä¸ºå¤–éƒ¨é“¾æ¥ï¼Œç„¶ååœ¨å…¶å®ƒæ–‡ä»¶å…ˆç”¨externalå£°æ˜
 
-extern int global4 = 46;//ÕâÊÇ¶¨Òå£¬ËùÓĞÎÄ¼şÖĞ²»ÄÜÖØ¸´³öÏÖ¶¨Òå
-extern int global5;//ÕâÊÇÉùÃ÷
+extern int global4 = 46;//è¿™æ˜¯å®šä¹‰ï¼Œæ‰€æœ‰æ–‡ä»¶ä¸­ä¸èƒ½é‡å¤å‡ºç°å®šä¹‰
+extern int global5;//è¿™æ˜¯å£°æ˜
 
 void staticVariable(){
 	using namespace std;
-	//Ö»ÔÚ´Ë´úÂë¿é¿ÉÓÃ£¬µ«ÔÚÕû¸ö³ÌĞòÖ´ĞĞÖÜÆÚ¶¼´æÔÚ¡£
-	static int static_in_func = 2;//¾²Ì¬´æ´¢£¬ÎŞÁ´½ÓĞÔ¡£Ö»³õÊ¼»¯Ò»´Î
+	//åªåœ¨æ­¤ä»£ç å—å¯ç”¨ï¼Œä½†åœ¨æ•´ä¸ªç¨‹åºæ‰§è¡Œå‘¨æœŸéƒ½å­˜åœ¨ã€‚
+	static int static_in_func = 2;//é™æ€å­˜å‚¨ï¼Œæ— é“¾æ¥æ€§ã€‚åªåˆå§‹åŒ–ä¸€æ¬¡
 	static_in_func++;
 	if(i++<3){
 		cout<<"static_in_func "<<static_in_func<<endl;
-		staticVariable();//ËäÈ»·´¸´µ÷ÓÃ£¬µ«ÊÇstatic_in_func²»»á·´¸´³õÊ¼»¯
+		staticVariable();//è™½ç„¶åå¤è°ƒç”¨ï¼Œä½†æ˜¯static_in_funcä¸ä¼šåå¤åˆå§‹åŒ–
 	}
 }
 
 void staticVariable2(){
 	using namespace std;
 
-	//µ±±äÁ¿ÃûÖØÃûÊ±£¬¾Ö²¿±äÁ¿ÓÅÏÈÓÚ¾²Ì¬±äÁ¿¡¢ÄÚ²¿Á´½ÓµÄÓÅÏÈÓÚÍâ²¿±äÁ¿µÄ¡£¼´£º·¶Î§Ğ¡µÄÓÅÏÈ¼¶¸ü¸ß
-	cout<<"Íâ²¿ "<<global<<endl;
+	//å½“å˜é‡åé‡åæ—¶ï¼Œå±€éƒ¨å˜é‡ä¼˜å…ˆäºé™æ€å˜é‡ã€å†…éƒ¨é“¾æ¥çš„ä¼˜å…ˆäºå¤–éƒ¨å˜é‡çš„ã€‚å³ï¼šèŒƒå›´å°çš„ä¼˜å…ˆçº§æ›´é«˜
+	cout<<"å¤–éƒ¨ "<<global<<endl;
 	int global = 1001;
-	cout<<"¾Ö²¿ÓÅÏÈ "<<global<<endl;
-	cout<<"·ÃÎÊ±»Òş²ØµÄÍâ²¿±äÁ¿ "<<::global<<endl;//Ê¹ÓÃÈ«¾ÖÃû³Æ¿Õ¼äÏÂµÄglobal±äÁ¿
+	cout<<"å±€éƒ¨ä¼˜å…ˆ "<<global<<endl;
+	cout<<"è®¿é—®è¢«éšè—çš„å¤–éƒ¨å˜é‡ "<<::global<<endl;//ä½¿ç”¨å…¨å±€åç§°ç©ºé—´ä¸‹çš„globalå˜é‡
 
-	cout<<"Íâ²¿2 "<<global4<<endl;
+	cout<<"å¤–éƒ¨2 "<<global4<<endl;
 
-	const int state = 100;//×÷ÓÃÓòÎª´úÂë¿é
+	const int state = 100;//ä½œç”¨åŸŸä¸ºä»£ç å—
 }
 //----------------END
 
-//testScope2.cppÖĞÒ²¶¨ÒåÁËonlyThisFile(),µ«ÊÇÓÅÏÈÊ¹ÓÃ±¾ÎÄ¼şÖĞµÄstaticº¯Êı
+//testScope2.cppä¸­ä¹Ÿå®šä¹‰äº†onlyThisFile(),ä½†æ˜¯ä¼˜å…ˆä½¿ç”¨æœ¬æ–‡ä»¶ä¸­çš„staticå‡½æ•°
 static void onlyThisFile();
 
-
-//---------ÓïÑÔµÄÁ´½ÓĞÔ(Language linking)
-//±³¾°ÖªÊ¶£ºCÓïÑÔ±àÒëÆ÷¿ÉÄÜ½«º¯Êı·­ÒëÎª_spiff
-//C++Ö§³ÖÖØÔØ£¬¹ÊĞèÒª·­ÒëÎª£º_spiff_i
-//Á´½Ó³ÌĞòÑ°ÕÒº¯ÊıÊ±£¬CºÍC++ÊÇ²»Ò»ÑùµÄ¡£ÄÇÃ´Èç¹ûC++³ÌĞòÖĞÊ¹ÓÃC¿âÖĞÔ¤±àÒëµÄº¯Êı£¬½«»áÕÒ²»µ½
-extern "C"void spiff(int);//ÕâÖÖÇé¿öÏÂ£¬Ö¸¶¨extern "C",Ê¹ÓÃCÓïÑÔÁ´½ÓĞÔ
-extern "C++"void spot(int);//Ö¸¶¨C++ÓïÑÔÁ´½Ó¡£
+//---------è¯­è¨€çš„é“¾æ¥æ€§(Language linking)
+//èƒŒæ™¯çŸ¥è¯†ï¼šCè¯­è¨€ç¼–è¯‘å™¨å¯èƒ½å°†å‡½æ•°ç¿»è¯‘ä¸º_spiff
+//C++æ”¯æŒé‡è½½ï¼Œæ•…éœ€è¦ç¿»è¯‘ä¸ºï¼š_spiff_i
+//é“¾æ¥ç¨‹åºå¯»æ‰¾å‡½æ•°æ—¶ï¼ŒCå’ŒC++æ˜¯ä¸ä¸€æ ·çš„ã€‚é‚£ä¹ˆå¦‚æœC++ç¨‹åºä¸­ä½¿ç”¨Cåº“ä¸­é¢„ç¼–è¯‘çš„å‡½æ•°ï¼Œå°†ä¼šæ‰¾ä¸åˆ°
+extern "C"void spiff(int);//è¿™ç§æƒ…å†µä¸‹ï¼ŒæŒ‡å®šextern "C",ä½¿ç”¨Cè¯­è¨€é“¾æ¥æ€§
+extern "C++"void spot(int);//æŒ‡å®šC++è¯­è¨€é“¾æ¥ã€‚
 
 //-----END
 
-
+void fun1(){
+    static int haha = 8;
+    std::cout<<haha<<" haha "<<&haha<<std::endl;
+    haha++;
+}
+void fun2(){
+    static int haha = 3;
+    std::cout<<haha<<" haha2 "<<&haha<<std::endl;
+    while(haha-- > 0)
+    fun2();
+}
 
 
 int main_scope(){
@@ -73,36 +82,29 @@ int main_scope(){
 	staticVariable();
 	staticVariable2();
 
-	//ÏÈÉùÃ÷
+	//å…ˆå£°æ˜
 	extern void printV();
 	printV();
 
 	onlyThisFile();
 
+	fun1();
+	fun1();
+	fun1();
+	fun2();
+    fun1();
+    fun1();
 
-	void testplacementNew();//ÉùÃ÷
-	testplacementNew();
+    extern int ccc;//cccå®šä¹‰åœ¨æœ¬æ–‡ä»¶åé¢ï¼Œä¹Ÿè¦ç”¨externå£°æ˜
+    std::cout<<ccc;
+
 	return 0;
 }
+int ccc = 8;
 
-//------Í¨¹ıstatic½«º¯ÊıÁ´½ÓĞÔÉèÖÃÎªÄÚ²¿£¬·ñÔòº¯ÊıÄ¬ÈÏ¶¼ÊÇÍâ²¿µÄ
+//------é€šè¿‡staticå°†å‡½æ•°é“¾æ¥æ€§è®¾ç½®ä¸ºå†…éƒ¨ï¼Œå¦åˆ™å‡½æ•°é»˜è®¤éƒ½æ˜¯å¤–éƒ¨çš„
 static void onlyThisFile(){
 	using namespace std;
 	cout<<"Can only call in this file"<<endl;
 }
 
-//Ö¸¶¨Î»ÖÃ¹¹Ôì¶ÔÏó¡£¿ÉÒÔÔÚÕ»ÉÏ£¬Ò²¿ÉÒÔÔÚ¶ÑÉÏ
-#include<new>
-void testplacementNew(){
-	using namespace std;
-	char buffer[10];
-	char * pbuf = new (buffer)char;//ÔÚbufferµÄÎ»ÖÃÉú³É¶ÔÏó¡£
-	//µØÖ·Ó¦¸ÃÒ»Ñù
-	cout<<"pbufµÄµØÖ·£º"<<(void*)pbuf<<",bufferµÄÊ×µØÖ·£º"<<(void*)buffer<<endl;//×ª³Évoid*ÊÇÎªÁËcout´ò³öµØÖ·¶ø²»ÊÇ×Ö·û´®
-
-	pbuf = new ((int*)buffer+1)char;////ÔÚµØÖ·buffer+sizeof(int)µÄÎ»ÖÃÉú³É¶ÔÏó¡£
-	cout<<"pbufµÄµØÖ·£º"<<(void*)pbuf<<endl;
-	//²»ĞèÒªÊ¹ÓÃdeleteÊÍ·Å£¬¶øÇÒÒ²²»ÄÜÕâÑù×ö
-
-
-}

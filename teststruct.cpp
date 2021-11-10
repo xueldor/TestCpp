@@ -9,15 +9,15 @@ struct inflatable{
 	char name[20];
 	float volume;
 	double price;
-};//·ÖºÅ
+};//åˆ†å·
 
 typedef struct inflatable2{
 	std::string name;
 	float volume;
 	double price;
-} inflatable2_s;//CÓïÑÔÎªÁËÊ¡ÂÔstruct¹Ø¼ü×Ö»áÕâÑùĞ´
+} inflatable2;//Cè¯­è¨€ä¸ºäº†çœç•¥structå…³é”®å­—ä¼šè¿™æ ·å†™
 
-//Î»Óò
+//ä½åŸŸ
 struct bitArea{
 	bool first:1;//1bit
 	char second: 2;
@@ -32,17 +32,17 @@ union fourInOne{
 
 };
 
-enum spec{red,green,orange,blue = 100,grey};//greyÊÇ101
+enum spec{red,green,orange,blue = 100,grey};//greyæ˜¯101
 
 void testStru(){
 
-	struct inflatable goose;//CÓïÑÔ²»ÄÜÊ¡ÂÔstruct
-	inflatable hat;//C++¿ÉÒÔÊ¡ÂÔstruct¹Ø¼ü×Ö
+	struct inflatable goose;//Cè¯­è¨€ä¸èƒ½çœç•¥struct
+	inflatable hat;//C++å¯ä»¥çœç•¥structå…³é”®å­—
 	strcpy(goose.name,"no");
 	strcpy_s(hat.name,"oh");
 	cout<<hat.name<<"  "<<hat.price<<endl;
 
-	inflatable2_s bat;
+	inflatable2 bat;
 	bat.name = "nik";
 
 	inflatable pal = {
@@ -57,8 +57,8 @@ void testStru(){
 	//test enum
 	spec specA = green;
 	cout<<specA<<endl;
-	int aa = specA;//Ã¶¾Ù¿ÉÒÔ×ª³Éint
-	specA = (spec)2;//·´Ö®£¬int×ª³ÉÃ¶¾Ù±ØĞëÇ¿×ª
+	int aa = specA;//æšä¸¾å¯ä»¥è½¬æˆint
+	specA = (spec)2;//åä¹‹ï¼Œintè½¬æˆæšä¸¾å¿…é¡»å¼ºè½¬
 	cout<<specA<<"  "<<grey<<endl;
 
 }

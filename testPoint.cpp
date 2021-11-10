@@ -1,83 +1,87 @@
 #include <iostream>
 using namespace std;
 
+namespace TestPoint {
+    void testpoint() {
+//wrong,ä¸èƒ½å¯¹å¸¸é‡å–åœ°å€ :  int *ps = &8;
+        int ii = 9;
+//wrong    cout<<&(ii+1)<<endl;
+        &(ii + 1, ii);
 
-void testpoint(){
-//wrong,²»ÄÜ¶Ô³£Á¿È¡µØÖ· :  int *ps = &8;
+        const int a = 6;
+        cout << &a << endl;//OK
 
-	const int a = 6;
-	cout<<&a<<endl;//OK
-
-	int * pa = 0;//NULL
-	delete pa;//OK
-	delete pa;//OK,¿ÕµØÖ·ÓÃdelete×ÜÊÇ°²È«µÄ
+        int *pa = 0;//NULL
+        delete pa;//OK
+        delete pa;//OK,ç©ºåœ°å€ç”¨deleteæ€»æ˜¯å®‰å…¨çš„
 
 
-	int *pt = (int*)0xB8000000U;//µØÖ·±¾ÖÊÊÇint£¬C99±ê×¼Ö®Ç°µÄCÓïÑÔ¿ÉÒÔÖ±½Ó¸³Öµ£¬C++ÖĞ±ØĞëÇ¿×ª¡£
-	long val = (long)pt;
+        int *pt = (int *) 0xB8000000U;//åœ°å€æœ¬è´¨æ˜¯intï¼ŒC99æ ‡å‡†ä¹‹å‰çš„Cè¯­è¨€å¯ä»¥ç›´æ¥èµ‹å€¼ï¼ŒC++ä¸­å¿…é¡»å¼ºè½¬ã€‚
+        long long val = (long long) pt;//æˆ‘çš„å½“å‰ç¯å¢ƒlongæ˜¯32ä¸ºï¼Œ64ä½æœºï¼Œæ•…ç”¨long longã€‚
 
 
-	int* pb = new int;
-	cout<<"Ö¸Õë×ÔÉí³¤¶È£º"<<sizeof pb<<endl;
-	cout<<"Ö¸ÕëÖ¸ÏòÊı¾İµÄ³¤¶È£º"<<sizeof *pb<<endl;
-	delete pb;
-//wrong ,²»ÄÜdeleteÁ½´Î	£º  delete pb;
+        int *pb = new int;
+        cout << "æŒ‡é’ˆè‡ªèº«é•¿åº¦ï¼š" << sizeof pb << endl;
+        cout << "æŒ‡é’ˆæŒ‡å‘æ•°æ®çš„é•¿åº¦ï¼š" << sizeof *pb << endl;
+        delete pb;
+//wrong ,ä¸èƒ½deleteä¸¤æ¬¡	ï¼š  delete pb;
 
-	int arr1[5];
-	cout<<"¾²Ì¬Êı×é¿ÉÒÔÓÃsizeofÇó´óĞ¡£º"<<sizeof arr1/sizeof arr1[0]<<endl;;
+        int arr1[5];
+        cout << "é™æ€æ•°ç»„å¯ä»¥ç”¨sizeofæ±‚å¤§å°ï¼š" << sizeof arr1 / sizeof arr1[0] << endl;;
 
-	int * arr2 = new int[5];
-	cout<<"µ«ÊÇ¶¯Ì¬·ÖÅäµÄÊı×é²»ÄÜ£º"<<sizeof arr2<<" ,ÕâÊÇÖ¸ÕëµÄ³¤¶È£¬±ÈÈç64Î»µØÖ·Êä³ö8"<<endl;
+        int *arr2 = new int[5];
+        cout << "ä½†æ˜¯åŠ¨æ€åˆ†é…çš„æ•°ç»„ä¸èƒ½ï¼š" << sizeof arr2 << " ,è¿™æ˜¯æŒ‡é’ˆçš„é•¿åº¦ï¼Œæ¯”å¦‚64ä½åœ°å€è¾“å‡º8" << endl;
 
-	cout<<"Ö¸Õë+1£¬Ö¸ÕëÖµÔö¼ÓÖ¸ÏòµÄÀàĞÍµÄ×Ö½ÚÊı£º"<<*(arr2+1)<<endl;
-	
-	cout<<"Ö¸Õë+1£¬Ö¸ÕëÖµÔö¼ÓÖ¸ÏòµÄÀàĞÍµÄ×Ö½ÚÊı,(int)(arr2+1)-(int)arr2 = "<<(int)(arr2+1)-(int)arr2<<endl;
+        cout << "æŒ‡é’ˆ+1ï¼ŒæŒ‡é’ˆå€¼å¢åŠ æŒ‡å‘çš„ç±»å‹çš„å­—èŠ‚æ•°ï¼š" << *(arr2 + 1) << endl;
 
-	int *pt1 = (int*)0xB8000000U;
-	int *pt2 = (int*)0xB8000004U;
-	cout<<"Ö¸Õë¼õ£¬µÈÓÚµØÖ·µÄ²î³ıÒÔÀàĞÍ´óĞ¡£º "<<pt2-pt1<<endl;//Êä³ö1
+        //intæ•°ç»„ï¼Œåº”è¯¥è¾“å‡ºä¸€ä¸ªsizeof(int)
+        cout << "æŒ‡é’ˆ+1ï¼ŒæŒ‡é’ˆå€¼å¢åŠ æŒ‡å‘çš„ç±»å‹çš„å­—èŠ‚æ•°,(long long)(arr2+1)-(long long)arr2 = " << (long long) (arr2 + 1) - (long long) arr2 << endl;
 
-	delete[]arr2;
+        int *pt1 = (int *) 0xB8000000U;
+        int *pt2 = (int *) 0xB8000004U;
+        cout << "æŒ‡é’ˆå‡ï¼Œç­‰äºåœ°å€çš„å·®é™¤ä»¥ç±»å‹å¤§å°ï¼š " << pt2 - pt1 << endl;//è¾“å‡º1
 
-}
+        delete[]arr2;
 
-void testconstPoint (const int* param){//Ö¸Õë²ÎÊıÒ»°ãÓ¦¾¡Á¿ÉùÃ÷Îª³£Á¿
+    }
 
-	const float g = 9.8f;
-	const float *pg = &g;
+    void testconstPoint(const int *param) {//æŒ‡é’ˆå‚æ•°ä¸€èˆ¬åº”å°½é‡å£°æ˜ä¸ºå¸¸é‡
+
+        const float g = 9.8f;
+        const float *pg = &g;
 //wrong,*pg is const	*pg = 9.9f;
 
-	float e = 2.7f,pi=3.14f;
-	float * const ph = &e;
+        float e = 2.7f, pi = 3.14f;
+        float *const ph = &e;
 //wrong,ph is const	ph = &pi;
 
-	float *pf = const_cast<float*>(pg);//È¥³ıconst
-	*pf = 11.0f;
-	cout<<*pf<<endl;
-}
+        float *pf = const_cast<float *>(pg);//å»é™¤const
+        *pf = 11.0f;
+        cout << *pf << endl;
+    }
 
-void testref(){
+    void testref() {
 
-	//´ÓÓï·¨¶¨Òå½Ç¶È¿´£¬ÒıÓÃÏàµ±ÓÚ±ğÃû£¬dºÍd_atÎŞÂÛÊÇÖµ»¹ÊÇµØÖ·¶¼Ò»Ñù
-	int d = 56;
-	int& d_at = d;//±ØĞëÔÚÉùÃ÷Ê±³õÊ¼»¯
-	cout<<d<<"  "<<d_at<<"  "<<&d<<"  "<<&d_at<<endl;
+        //ä»è¯­æ³•å®šä¹‰è§’åº¦çœ‹ï¼Œå¼•ç”¨ç›¸å½“äºåˆ«åï¼Œdå’Œd_atæ— è®ºæ˜¯å€¼è¿˜æ˜¯åœ°å€éƒ½ä¸€æ ·
+        int d = 56;
+        int &d_at = d;//å¿…é¡»åœ¨å£°æ˜æ—¶åˆå§‹åŒ–
+        cout << d << "  " << d_at << "  " << &d << "  " << &d_at << endl;
 
-	//´Ó±àÒëÆ÷½Ç¶È£¬ÒıÓÃµÄÊµÏÖÖ»ÊÇ»ùÓÚÖ¸ÕëµÄ´úÂëµÄÁíÒ»¸ö½Ó¿Ú£¬*pdÏàµ±ÓÚd_at,pdÏàµ±ÓÚ&d_at
-	int * const pd = &d;//ÒıÓÃ½Ó½üconstÖ¸Õë
-	cout<<d<<"  "<<*pd<<"  "<<&d<<"  "<<pd<<endl;
+        //ä»ç¼–è¯‘å™¨è§’åº¦ï¼Œå¼•ç”¨çš„å®ç°åªæ˜¯åŸºäºæŒ‡é’ˆçš„ä»£ç çš„å¦ä¸€ä¸ªæ¥å£ï¼Œ*pdç›¸å½“äºd_at,pdç›¸å½“äº&d_at
+        int *const pd = &d;//å¼•ç”¨æ¥è¿‘constæŒ‡é’ˆ
+        cout << d << "  " << *pd << "  " << &d << "  " << pd << endl;
 
 
+        const int aaa = 99;
+        const int &bbb = aaa;//OK
+    }
 
-	const int aaa = 99;
-	const int &bbb = aaa;//OK
-}
+    int main() {
+        testpoint();
+        int a = 10;
+        testconstPoint(&a);
+        testref();
 
-int main_p(){
-	testpoint();
-	int a = 10;
-	testconstPoint (&a);
-	testref();
-
-	return 0;
+        return 0;
+    }
 }
