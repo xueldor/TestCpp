@@ -8,7 +8,7 @@
 void autoVariable(){
 	//自动变量放在内存堆栈中（或者CPU寄存器）
 	using namespace std;
-	auto int x;//same as int x;auto几乎不会使用，如果使用，只是为了向读者澄清含义
+	auto int x;//same as int x;auto几乎不会使用，如果使用，只是为了向读者澄清含义;C++11已经删除了这一用法，auto用于变量的自动类型推断。
 
 	register int y;//寄存器变量没有地址
 	int* py = &y;//所以编译器实际没有使用寄存器来存储该变量

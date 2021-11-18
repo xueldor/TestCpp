@@ -16,10 +16,14 @@ int main() {
 //    main_scope();
 //    main_new();
 
-//    main_extend();
+//    TestExtend::main_extend();
+//    main_extend2();
+//    TestMutiExtend::main();
 
-    TestMutiExtend::main();
+//    main_meta_programming();
 
+//    main_basic_class();
 
+    TestObjectMemery::main();
     return 0;
 }

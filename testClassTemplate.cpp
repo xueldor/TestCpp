@@ -42,10 +42,9 @@ int Array<T,maxsize>::maxSize(){
 	return maxsize;
 }
 
-
 #endif
 
-int main(){
+int main_template(){
 	//T是string
 	Stack<std::string> stackStr;//函数模板可以根据参数由编译器隐式的推导出类型。但是类模板必须显式指定类型，比如这里是std::string
 	cout<<stackStr.isEmpty()<<endl;
@@ -68,4 +67,5 @@ int main(){
 	Array<int,15> arr2;//maxsize=15
 	cout<<arr2.maxSize()<<endl;
 
+	return 0;
 }

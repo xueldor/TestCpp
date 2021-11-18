@@ -67,6 +67,9 @@ namespace TestFunction {
  */
     int harpo(int n, int m, int j = 5);
 
+    int haha(int a[5]){}
+//    int haha(int a[]){}
+//    int haha(int a[10]){}//报错：重复定义。这三个haha函数参数实质是一样的,int* a,方括号里的数字没用。
 
     int main() {
         int a[10] = {0};

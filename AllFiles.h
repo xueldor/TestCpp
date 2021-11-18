@@ -13,8 +13,11 @@
 #include "teststring.cpp"
 #include "teststruct.cpp"
 #include "test_new.cpp"
+#include "testClassBasic.cpp"
 #include "testextend.cpp"
+#include "testextend2.cpp"
 #include "test_multi_extend.cpp"
 #include "testClassTemplate.cpp"
+#include "testClassTemplateMetaProgramming.cpp"
 
 #endif //TESTCPP_ALLFILES_H

@@ -1,5 +1,5 @@
 # TestCpp
-演示c++语言的基础特性，不包括c++11新特性。故CMakeLists里面指定set(CMAKE_CXX_STANDARD 98)  
+演示c++语言的基础特性，不包括c++11新特性。故CMakeLists里面指定set(CMAKE_CXX_STANDARD 98)。（重要，因为代码里有一些C++ 11不支持的写法）  
 为了演示清楚语法特性，代码有许多不常规、不推荐的写法，所以编译有不少警告，需周知。
 
 
@@ -19,7 +19,7 @@ File-Settings中搜索encoding,将三个选择框全部改成UTF-8;
 然后使用快捷键：shift+ctrl+alt+/ ,选择第一个选项 Registry（注册表），找到蓝色的 run.processes.with.pty 将其 Value 的复选框去掉
 
 项目个别地方用中文作为变量名(不推荐)，这是符合语言规范的，visual studio里面也没问题，但是用mingw64，编译错误，提示“error stray ‘\xxx’ in program”。原因是gcc 从 gcc-10.0.0 版本开始，才支持定义中文（utf-8）的变量名、函数名、类名。
-而https://sourceforge.net/projects/mingw-w64/files/这个网站下载的mingw64最高版本只有8.1。因此我从https://github.com/brechtsanders/winlibs_mingw下载最新版本11.2，然后ＯＫ。
+而https://sourceforge.net/projects/mingw-w64/files/ 这个网站下载的mingw64最高版本只有8.1。因此我从https://github.com/brechtsanders/winlibs_mingw 下载最新版本11.2，然后ＯＫ。
 
 此程序演示C++语言的一些简单特性。
 由于项目中有且仅能有一个main方法，故运行某个cpp中的demo时，请将该文件中的main方法放开

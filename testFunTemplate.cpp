@@ -50,8 +50,19 @@ namespace TestFunTemplate {
         cout << "我是模板Swaptemplate的特例话" << endl;
     }
 
+    //N 是非类型模板形参,只有整形，指针和引用才能作为非类型形参，而且绑定到该形参的实参必须是常量表达式，即编译期就能确认结果。
+    template <class T, size_t N> void array_init(T (&parm)[N])
+    {
+        cout<<"value of N is "<<N<<endl;
+//        N = 9;//wrong，N在编译期间就确定了，不是变量，不能赋值
+        for (size_t i = 0; i != N; ++i) {
+            parm[i] = 0;
+        }
+    }
 
-//模板的知识可以参考 https://qixinbo.info/2017/07/09/cplusplus-template/
+
+
+    //模板的知识可以参考 https://qixinbo.info/2017/07/09/cplusplus-template/
     int main() {
         int s1 = 2, s2 = 3;
         //隐式实例化
@@ -90,6 +101,9 @@ namespace TestFunTemplate {
         callChange();
         callChange2();
 
+        int x[42],y[10];
+        array_init(x);
+        array_init(y);
 
         return 0;
     }
