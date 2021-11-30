@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/xue/CLionProjects/LinuxProgramming/CBasic/handle_strings/cast_integer.cpp
+stdio.h
+-
+cstring
+-
+cstdlib
+-
+

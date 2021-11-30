@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/handle_strings.dir/main.cpp.o CMakeFiles/handle_strings.dir/cast_integer.cpp.o  -o handle_strings 

@@ -1,0 +1,3 @@
+/home/xue/CLionProjects/LinuxProgramming/CBasic/handle_strings/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/xue/CLionProjects/LinuxProgramming/CBasic/handle_strings/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/xue/CLionProjects/LinuxProgramming/CBasic/handle_strings/cmake-build-debug/CMakeFiles/handle_strings.dir
