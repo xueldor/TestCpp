@@ -29,6 +29,8 @@
 
 12-operationOverloading： 运算符重载
 
+13-copy： 研究数组的拷贝，类对象的拷贝，拷贝构造函数和重载赋值运算符
+
 
 因为所有代码文件编码都用UTF-8 ，如果你在windows上用Clion Run出现乱码，按以下设置：  
 
