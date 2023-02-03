@@ -11,7 +11,37 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ddde110-0dc0-4760-a68e-0c81a8278b06" name="Default Changelist" comment="" />
+    <list default="true" id="6aeea730-d41c-4827-9418-ed10d97d08e3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cast_integer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/cast_integer.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/handle_strings.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/handle_strings" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/handle_strings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/handle_strings.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/handle_strings.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +54,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1jUsXI9w2Bq4cZ0vyglAy0TGA8l" />
+  <component name="ProjectId" id="2L2iJc95gm5KmzcOHsO9vgqPEGb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,21 +76,18 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5ddde110-0dc0-4760-a68e-0c81a8278b06" name="Default Changelist" comment="" />
-      <created>1603870042325</created>
+      <changelist id="6aeea730-d41c-4827-9418-ed10d97d08e3" name="Default Changelist" comment="" />
+      <created>1675075509235</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1603870042325</updated>
-      <workItem from="1603870044342" duration="1317000" />
+      <updated>1675075509235</updated>
+      <workItem from="1675075512327" duration="741000" />
+      <workItem from="1675076480211" duration="4496000" />
+      <workItem from="1675128205973" duration="1054000" />
     </task>
     <servers />
   </component>
@@ -68,25 +95,25 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1866" height="237" key="GridCell.Tab.0.bottom" timestamp="1603871361189">
-      <screen x="0" y="27" width="1920" height="955" />
+    <state width="1623" height="194" key="GridCell.Tab.0.bottom" timestamp="1675080978738">
+      <screen x="41" y="27" width="1677" height="899" />
     </state>
-    <state width="1866" height="237" key="GridCell.Tab.0.bottom/0.27.1920.955@0.27.1920.955" timestamp="1603871361189" />
-    <state width="1866" height="237" key="GridCell.Tab.0.center" timestamp="1603871361188">
-      <screen x="0" y="27" width="1920" height="955" />
+    <state width="1623" height="194" key="GridCell.Tab.0.bottom/41.27.1677.899@41.27.1677.899" timestamp="1675080978738" />
+    <state width="1623" height="194" key="GridCell.Tab.0.center" timestamp="1675080978737">
+      <screen x="41" y="27" width="1677" height="899" />
     </state>
-    <state width="1866" height="237" key="GridCell.Tab.0.center/0.27.1920.955@0.27.1920.955" timestamp="1603871361188" />
-    <state width="1866" height="237" key="GridCell.Tab.0.left" timestamp="1603871361188">
-      <screen x="0" y="27" width="1920" height="955" />
+    <state width="1623" height="194" key="GridCell.Tab.0.center/41.27.1677.899@41.27.1677.899" timestamp="1675080978737" />
+    <state width="1623" height="194" key="GridCell.Tab.0.left" timestamp="1675080978737">
+      <screen x="41" y="27" width="1677" height="899" />
     </state>
-    <state width="1866" height="237" key="GridCell.Tab.0.left/0.27.1920.955@0.27.1920.955" timestamp="1603871361188" />
-    <state width="1866" height="237" key="GridCell.Tab.0.right" timestamp="1603871361189">
-      <screen x="0" y="27" width="1920" height="955" />
+    <state width="1623" height="194" key="GridCell.Tab.0.left/41.27.1677.899@41.27.1677.899" timestamp="1675080978737" />
+    <state width="1623" height="194" key="GridCell.Tab.0.right" timestamp="1675080978738">
+      <screen x="41" y="27" width="1677" height="899" />
     </state>
-    <state width="1866" height="237" key="GridCell.Tab.0.right/0.27.1920.955@0.27.1920.955" timestamp="1603871361189" />
-    <state x="623" y="233" width="672" height="678" key="search.everywhere.popup" timestamp="1603870807361">
-      <screen x="0" y="27" width="1920" height="955" />
+    <state width="1623" height="194" key="GridCell.Tab.0.right/41.27.1677.899@41.27.1677.899" timestamp="1675080978738" />
+    <state x="542" y="219" width="672" height="678" key="search.everywhere.popup" timestamp="1675079990358">
+      <screen x="41" y="27" width="1677" height="899" />
     </state>
-    <state x="623" y="233" width="672" height="678" key="search.everywhere.popup/0.27.1920.955@0.27.1920.955" timestamp="1603870807361" />
+    <state x="542" y="219" width="672" height="678" key="search.everywhere.popup/41.27.1677.899@41.27.1677.899" timestamp="1675079990358" />
   </component>
 </project>

@@ -1,7 +1,7 @@
+cmake-build-debug/
+.idea/
 Debug/
 Release/
 x64/
 TestCpp.vcproj.*
-.idea/
-cmake-build-debug/
 *.h.gch
