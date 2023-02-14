@@ -1,3 +1,0 @@
-/home/xue/CLionProjects/LinuxProgramming/CppBasic/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/xue/CLionProjects/LinuxProgramming/CppBasic/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/xue/CLionProjects/LinuxProgramming/CppBasic/cmake-build-debug/CMakeFiles/CppBasic.dir
