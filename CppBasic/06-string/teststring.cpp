@@ -8,24 +8,24 @@ using namespace std;
  * C++当然支持C语言风格的字符串，另外以标准库的方法提供了string类。
  */
 void teststring(){
-	string str1;
-	string str2 = "Tom";
+    string str1;
+    string str2 = "Tom";
     //数组不能赋值，string对象可以，因为C++中对象和结构可以直接赋值，内存中的对象会拷贝一份。不过要说的是，string内部
-	str1 = str2;
-	cout<<str1<<endl;
+    str1 = str2;
+    cout<<str1<<endl;
 
-	str2+=" is stupid";//拼接
-	cout<<str2<<endl;
+    str2+=" is stupid";//拼接
+    cout<<str2<<endl;
 
-	char hungry[] = " hungry boy";
-	str1 += hungry;//与C风格字符串拼接
-	cout<<str1<<endl;
+    char hungry[] = " hungry boy";
+    str1 += hungry;//与C风格字符串拼接
+    cout<<str1<<endl;
 
-	str1 = hungry;//C风格字符串赋值给string对象
-	cout<<str1<<endl;
+    str1 = hungry;//C风格字符串赋值给string对象
+    cout<<str1<<endl;
 
-	const char* tom = str2.c_str();//string转C风格字符串
-	cout<<tom<<endl;
+    const char* tom = str2.c_str();//string转C风格字符串
+    cout<<tom<<endl;
 }
 void testString2(){
     string str = "a";
@@ -63,9 +63,28 @@ void testString2(){
     cout<<"str_test "<<str_test<<endl;//c++会妥善处理这些问题。应该内部有个引用计数，计数清零才delete。
 
 }
+void testString3(){
+    cout<<"\ntestString3----"<<endl;
+    char * p = new char[10];
+    p[0] = 'a';
+    p[1] = 'a';
+    p[2] = 'a';
+    p[3] = 'a';
+    p[4] = 'a';
+    p[5] = '\0';
 
+    string str = p;//用初始化str
+    p[1] = 'b';//修改p
+    cout<<"str="<<str<<", p="<<p<<endl;//str和p不相等，所以str内部绝不会简单持有p指针。也就是，str = p发生了拷贝
+    str = p;
+    cout<<"str="<<str<<", p="<<p<<endl;
+
+    delete[]p;
+    p = nullptr;
+}
 int main_string(){
-	teststring();
+    teststring();
     testString2();
-	return 0;
+    testString3();
+    return 0;
 }

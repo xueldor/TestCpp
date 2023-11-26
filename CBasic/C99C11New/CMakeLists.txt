@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.14)
 project(c99c11new C)
 
 #set(CMAKE_C_STANDARD 99)
@@ -12,7 +12,6 @@ if(TEST_THREAD)
 endif()
 
 set(CMAKE_C_FLAGS -pthread)
-
 
 add_executable(c99c11new main.c test_wchar_t.c test_vla.c test_init.c test_alignof.c )
 if(TEST_THREAD)

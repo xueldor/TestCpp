@@ -53,12 +53,13 @@ namespace f2 {
     }
 
     void testSharedPtr(){
+        cout<<"\ntestSharedPtr"<<endl;
         string* str = new string("abcd");
         weak_ptr<string> w1;
         {
             shared_ptr<string> s1(str);
             //引用计数，有几个shared_ptr引用对象。“string* str”也引用对象，但这就不可能被shared_ptr知道了。
-            // 因此跟unique_ptr一样，因尽量把new语句写在shared_ptr的初始化里：shared_ptr<string> s1(new string("abcd"));
+            // 因此跟unique_ptr一样，尽量把new语句写在shared_ptr的初始化里：shared_ptr<string> s1(new string("abcd"));
             cout<<"use count " <<s1.use_count()<<" ,str="<<*s1<<endl;
             w1 = s1;//weak_ptr，是配合shared_ptr而引入的的智能指针
             {

@@ -7,6 +7,7 @@ https://www.ibadboy.net/archives/2323.html
 [初始化函数](#初始化函数)  
 [线程专有数据(TSD)和线程局部数据 (TLS)](#线程专有数据tsd和线程局部数据-tls)  
 
+threads.h是C11新增的多线程支持库，为什么命令用“thrd_create”这种奇怪的命名？可能是因为之前已经有很多类似“pthread_create”的命名，防止用新的编译器编译旧的代码出现命名冲突。
 
 # 线程管理
 ```c

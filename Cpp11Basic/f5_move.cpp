@@ -39,7 +39,7 @@ namespace f5 {
             }
             return *this;
         }
-        Test &operator=(const Test &test) //移动赋值操作符
+        Test &operator=(const Test &test) //拷贝赋值操作符
         {
             std::cout << "Assignment operator" << std::endl;
             if (this != &test)
